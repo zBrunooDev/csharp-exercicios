@@ -11,7 +11,7 @@ namespace ExMatrizes05
         static void Main(string[] args)
         {
 
-            // Captura dos valores das matrizes
+            // Captura dos valores das ma3trizes
             string[] s = Console.ReadLine().Split(' ');
 
             int a = int.Parse(s[0]);
