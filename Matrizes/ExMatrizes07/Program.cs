@@ -12,10 +12,11 @@ namespace ExMatrizes07
         static void Main(string[] args)
         {
 
-            //Exercicio em andamento.
+            
 
             int m = int.Parse(Console.ReadLine());
             int n= int.Parse(Console.ReadLine());
+           
 
             int[,] mat = new int[m, n];
 
@@ -28,20 +29,16 @@ namespace ExMatrizes07
                 }
             }
             
-            int l = int.Parse(Console.ReadLine());
+            int l = int.Parse(Console.ReadLine()) - 1;
+            int ultimo = mat[l, n - 1];
 
-            // Erro nessa logica aqui.
-            for (int i = 0; i < n; i++)
+
+            for (int j = n - 1; j > 0; j--)
             {
-                if( i < n - 1)
-                {
-                    int a = mat[l, i + 1];
-                    mat[l, i + 1] = mat[l, i];
-                }
-                else
-                mat[l, i - i] = mat[l, i];
-
+                mat[l, j] = mat[l, j - 1];
             }
+
+            mat[l, 0] = ultimo;
 
             for (int i = 0; i < m; i++)
             {
@@ -49,6 +46,7 @@ namespace ExMatrizes07
                 {
                     Console.Write(mat[i, j]  + " ");
                 }
+                Console.WriteLine();
             }
 
         }
