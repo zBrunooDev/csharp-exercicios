@@ -7,6 +7,7 @@ Repositório criado para registrar minha evolução nos estudos de C#.
 - Beecrowd
 - Vetores
 - Matrizes
+- POO
 
 ## Objetivo
 
