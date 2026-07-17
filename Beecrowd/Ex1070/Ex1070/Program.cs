@@ -4,25 +4,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Ex1065
+namespace Ex1070
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            int[] vet = new int[5];
+            int n = int.Parse(Console.ReadLine());
             int cont = 0;
 
-            for(int i = 0; i < 5; i++)
+            do
             {
-                vet[i] = int.Parse(Console.ReadLine());
-                if (vet[i] % 2 == 0)
+                if (n % 2 != 0)
                 {
+                    Console.WriteLine(n);
                     cont++;
                 }
-            }
+                n++;
+            } while (cont < 6);
 
-            Console.WriteLine($"{cont} valores pares");
         }
     }
 }
