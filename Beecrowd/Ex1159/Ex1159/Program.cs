@@ -12,8 +12,7 @@ namespace Ex1159
         static void Main(string[] args)
         {
             int n;
-            
-
+           
             do
             {
                 int soma = 0, cont = 0;
