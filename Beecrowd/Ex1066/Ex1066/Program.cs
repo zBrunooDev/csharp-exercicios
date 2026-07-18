@@ -23,7 +23,7 @@ namespace Ex1066
                     contImpar++;
                 if (vet[i] > 0)
                     contPositivo++;
-                else 
+                else if(vet[i] < 0)
                     contNegativo++;
             }
 
