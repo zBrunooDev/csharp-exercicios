@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,13 +12,19 @@ namespace Ex1159
         static void Main(string[] args)
         {
             int n;
-            int soma = 0, cont =0;
-            int[] vetSoma;
+            
+
             do
             {
+                int soma = 0, cont = 0;
                 n = int.Parse(Console.ReadLine());
-                do
+
+                if (n == 0)
+                    break;
+
+                do 
                 {
+
                     if (n % 2 == 0)
                     {
                         soma += n;
@@ -26,12 +33,12 @@ namespace Ex1159
                     n++;
                 }
                 while (cont < 5);
-                vetSoma[] = soma;
 
-            }while (n == 0);
+                Console.WriteLine(soma);
 
+            } while (true);
 
-
+            
         }
     }
 }
