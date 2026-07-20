@@ -8,9 +8,12 @@ namespace CadastroDeProdutos
 {
     internal class Program
     {
+
+        static List<Produto> produtos = new List<Produto>();
+
         static void Main(string[] args)
         {
-            List<int> produtos = new List<int>();
+            
 
             Console.WriteLine("=== Cadastro de Produtos ===");
 
@@ -29,7 +32,7 @@ namespace CadastroDeProdutos
                 switch (opcao)
                 {
                     case 1:
-
+                        CadastrarProduto();
                         break;
                 }
 
@@ -37,9 +40,18 @@ namespace CadastroDeProdutos
 
         }
 
-        public void CadastrarProduto()
+        public static void CadastrarProduto()
         {
-            Console.WriteLine("");
+            Produto produto = new Produto();
+            
+            Console.WriteLine("Digite o nome do Produto: ");
+            produto.Nome = Console.ReadLine();
+            Console.WriteLine("Digite o preço do Produto: ");
+            produto.Preco = double.Parse(Console.ReadLine());
+            Console.WriteLine("Digite a quantidade do Produto: ");
+            produto.Quantidade = int.Parse(Console.ReadLine());
+
+            produtos.Add(produto);
         }
     }
 }
