@@ -45,6 +45,10 @@ namespace CadastroDeProdutos
                         ListarProduto();
                         Menu();
                         break;
+                    case 3:
+                        BuscarPorId();
+                        Menu();
+                        break;
                 }
 
             } while (opcao != 0);
@@ -83,6 +87,21 @@ namespace CadastroDeProdutos
                 }
             }
 
+        }
+
+        public static void BuscarPorId()
+        {
+            Console.Write("Digite código do produto (Id): ");
+            int procurarId = int.Parse(Console.ReadLine());
+
+            foreach(Produto produto in produtos)
+            {
+                if( produto.Id == procurarId)
+                {
+                    Console.WriteLine($"Id: {produto.Id}, Nome: {produto.Nome}, R$ {produto.Preco}, Quantidade: {produto.Quantidade}");
+                }
+            }
+            
         }
     }
 }
