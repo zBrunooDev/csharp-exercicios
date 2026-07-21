@@ -13,23 +13,7 @@ namespace CadastroDeProdutos
 
         static void Main(string[] args)
         {
-
             Menu();
-
-            int opcao = int.Parse(Console.ReadLine());
-
-            do
-            {
-                switch (opcao)
-                {
-                    case 1:
-                        CadastrarProduto();
-                        Menu();
-                        break;
-                }
-
-            }while(opcao  != 0);
-
         }
 
         public static void Menu()
@@ -44,13 +28,31 @@ namespace CadastroDeProdutos
                 "4 - Atualizar estoque\r\n" +
                 "5 - Remover produto\r\n" +
                 "0 - Sair");
-        }
 
+            int opcao = int.Parse(Console.ReadLine());
+
+            do
+            {
+                switch (opcao)
+                {
+                    case 1:
+                        CadastrarProduto();
+                        Menu();
+                        break;
+                    case 2:
+                        ListarProduto();
+                        Menu();
+                        break;
+                }
+
+            } while (opcao != 0);
+        }
 
         public static void CadastrarProduto()
         {
             Produto produto = new Produto();
-            
+            int id = 0;
+            produto.Id = id;
             Console.WriteLine("Digite o nome do Produto: ");
             produto.Nome = Console.ReadLine();
             Console.WriteLine("Digite o preço do Produto: ");
@@ -59,6 +61,24 @@ namespace CadastroDeProdutos
             produto.Quantidade = int.Parse(Console.ReadLine());
 
             produtos.Add(produto);
+            Console.WriteLine("Produto cadastrado!");
+            id++;
+        }
+
+        public static void ListarProduto()
+        {
+            if(produtos.Count == 0)
+            {
+                Console.WriteLine("Nenhum Produto cadastrado!");
+            }
+            else
+            {
+                foreach(Produto produto in produtos)
+                {
+                    Console.WriteLine($"Id: {produto.Id}, Nome: {produto.Nome}, R$ {produto.Preco}, Quantidade: {produto.Quantidade}");
+                }
+            }
+
         }
     }
 }
