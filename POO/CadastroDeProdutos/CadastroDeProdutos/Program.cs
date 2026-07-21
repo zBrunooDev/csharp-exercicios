@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,6 +11,7 @@ namespace CadastroDeProdutos
     {
 
         static List<Produto> produtos = new List<Produto>();
+        static int contId = 1;
 
         static void Main(string[] args)
         {
@@ -50,9 +52,11 @@ namespace CadastroDeProdutos
 
         public static void CadastrarProduto()
         {
+            
             Produto produto = new Produto();
-            int id = 0;
-            produto.Id = id;
+            produto.Id = contId;
+            contId++;
+            
             Console.WriteLine("Digite o nome do Produto: ");
             produto.Nome = Console.ReadLine();
             Console.WriteLine("Digite o preço do Produto: ");
@@ -62,7 +66,7 @@ namespace CadastroDeProdutos
 
             produtos.Add(produto);
             Console.WriteLine("Produto cadastrado!");
-            id++;
+            
         }
 
         public static void ListarProduto()
