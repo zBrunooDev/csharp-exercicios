@@ -13,17 +13,8 @@ namespace CadastroDeProdutos
 
         static void Main(string[] args)
         {
-            
 
-            Console.WriteLine("=== Cadastro de Produtos ===");
-
-            Console.WriteLine("" +
-                "1 - Cadastrar produto\r\n" +
-                "2 - Listar produtos\r\n" +
-                "3 - Buscar produto\r\n" +
-                "4 - Atualizar estoque\r\n" +
-                "5 - Remover produto\r\n" +
-                "0 - Sair");
+            Menu();
 
             int opcao = int.Parse(Console.ReadLine());
 
@@ -33,12 +24,28 @@ namespace CadastroDeProdutos
                 {
                     case 1:
                         CadastrarProduto();
+                        Menu();
                         break;
                 }
 
-            }while(true);
+            }while(opcao  != 0);
 
         }
+
+        public static void Menu()
+        {
+
+            Console.WriteLine("=== Cadastro de Produtos ===\r\n");
+
+            Console.WriteLine("" +
+                "1 - Cadastrar produto\r\n" +
+                "2 - Listar produtos\r\n" +
+                "3 - Buscar produto\r\n" +
+                "4 - Atualizar estoque\r\n" +
+                "5 - Remover produto\r\n" +
+                "0 - Sair");
+        }
+
 
         public static void CadastrarProduto()
         {
