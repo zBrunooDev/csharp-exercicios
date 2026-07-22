@@ -10,6 +10,11 @@ namespace ExContaBancariaPOO
     {
         static void Main(string[] args)
         {
+            Conta conta = new Conta();
+
+            Console.Write("Entre o número da conta: ");
+            
+
         }
     }
 }
