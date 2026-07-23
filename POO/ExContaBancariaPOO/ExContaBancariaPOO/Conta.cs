@@ -18,10 +18,15 @@ namespace ExContaBancariaPOO
             Nome = nome;
         }
 
-        public double DepositoInicial(double depositoInicial)
+        public Conta(int numeroConta,  string nome, double saldo) : this(numeroConta, nome)
+        {
+            Saldo = saldo;
+        }
+
+        /*public double DepositoInicial(double depositoInicial)
         {
             return Saldo = depositoInicial;
-        }
+        }*/
 
         public double Deposito(double deposito)
         {

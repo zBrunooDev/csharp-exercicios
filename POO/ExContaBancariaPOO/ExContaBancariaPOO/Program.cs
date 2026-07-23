@@ -10,6 +10,7 @@ namespace ExContaBancariaPOO
     {
         static void Main(string[] args)
         {
+            Conta conta;
 
             Console.Write("Entre o número da conta: ");
             int numeroConta = int.Parse(Console.ReadLine());
@@ -18,13 +19,15 @@ namespace ExContaBancariaPOO
             Console.Write("Haverá deposito inicial? (s/n) ");
             string escolha = Console.ReadLine();
 
-            Conta conta = new Conta(numeroConta, nome);
-
             if (escolha == "s")
             {
                 Console.Write("Entre o valor de depósito incial: ");
                 double saldoInicial = double.Parse(Console.ReadLine());
-                conta.DepositoInicial(saldoInicial);
+                conta = new Conta(numeroConta, nome, saldoInicial);
+            }
+            else
+            {
+                conta = new Conta(numeroConta, nome);
             }
 
             Console.WriteLine("Dados da Conta: ");
