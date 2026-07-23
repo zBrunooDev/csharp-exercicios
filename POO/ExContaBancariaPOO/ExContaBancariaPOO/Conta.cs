@@ -8,15 +8,19 @@ namespace ExContaBancariaPOO
 {
     internal class Conta
     {
-        private int NumeroConta;
-        private double Saldo {  get; }
+        public int NumeroConta { get; private set; }
+        public double Saldo { get; private set; }
         public string Nome;
 
-        public Conta(int numeroConta, double saldo, string nome)
+        public Conta(int numeroConta, string nome)
         {
             NumeroConta = numeroConta;
-            Saldo = saldo;
             Nome = nome;
+        }
+
+        public double DepositoInicial(double depositoInicial)
+        {
+            return Saldo = depositoInicial;
         }
 
         public double Deposito(double deposito)
