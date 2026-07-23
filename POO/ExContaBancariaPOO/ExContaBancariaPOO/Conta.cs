@@ -28,6 +28,12 @@ namespace ExContaBancariaPOO
             return Saldo += deposito;
         }
 
+        public double Saque(double saque)
+        {
+            Saldo -= 5.00;
+            return Saldo -= saque;
+        }
+
         public override string ToString()
         {
             return $"Conta {NumeroConta}, Titular: {Nome}, Saldo: {Saldo}";

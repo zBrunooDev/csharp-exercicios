@@ -36,7 +36,13 @@ namespace ExContaBancariaPOO
 
             Console.WriteLine("Dados da conta atualizados: ");
             Console.WriteLine(conta + "\n");
-            
+
+            Console.Write("Entre um valor para saque: ");
+            double saque = double.Parse(Console.ReadLine());
+            conta.Saque(saque);
+
+            Console.WriteLine("Dados da conta atualizados: ");
+            Console.WriteLine(conta + "\n");
 
         }
     }
