@@ -25,7 +25,7 @@ namespace ExContaBancariaPOO
 
         public double Deposito(double deposito)
         {
-            return deposito + Saldo;
+            return Saldo += deposito;
         }
 
         public override string ToString()

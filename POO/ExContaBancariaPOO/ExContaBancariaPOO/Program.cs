@@ -28,10 +28,14 @@ namespace ExContaBancariaPOO
             }
 
             Console.WriteLine("Dados da Conta: ");
-            Console.WriteLine(conta);
+            Console.WriteLine(conta + "\n");
 
             Console.Write("Entre um valor de depósito: ");
+            double deposito = double.Parse(Console.ReadLine());
+            conta.Deposito(deposito);
 
+            Console.WriteLine("Dados da conta atualizados: ");
+            Console.WriteLine(conta + "\n");
             
 
         }
