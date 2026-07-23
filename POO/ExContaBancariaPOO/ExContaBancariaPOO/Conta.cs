@@ -10,7 +10,7 @@ namespace ExContaBancariaPOO
     {
         public int NumeroConta { get; private set; }
         public double Saldo { get; private set; }
-        public string Nome;
+        public string Nome { get ; set; }
 
         public Conta(int numeroConta, string nome)
         {
