@@ -18,30 +18,26 @@ namespace ExContaBancariaPOO
             Nome = nome;
         }
 
-        public Conta(int numeroConta,  string nome, double saldo) : this(numeroConta, nome)
+        public Conta(int numeroConta,  string nome, double saldoInicial) : this(numeroConta, nome)
         {
-            Saldo = saldo;
+            Saldo = saldoInicial;
+            Deposito(saldoInicial);
         }
 
-        /*public double DepositoInicial(double depositoInicial)
+        public void Deposito(double deposito)
         {
-            return Saldo = depositoInicial;
-        }*/
-
-        public double Deposito(double deposito)
-        {
-            return Saldo += deposito;
+            Saldo += deposito;
         }
 
-        public double Saque(double saque)
+        public void Saque(double saque)
         {
             Saldo -= 5.00;
-            return Saldo -= saque;
+            Saldo -= saque;
         }
 
         public override string ToString()
         {
-            return $"Conta {NumeroConta}, Titular: {Nome}, Saldo: {Saldo}";
+            return $"Conta {NumeroConta}, Titular: {Nome}, Saldo: $ {Saldo:F2}";
         }
 
     }
