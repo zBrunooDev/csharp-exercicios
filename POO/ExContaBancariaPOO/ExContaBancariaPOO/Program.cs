@@ -17,9 +17,9 @@ namespace ExContaBancariaPOO
             Console.Write("Entre o títular da conta: ");
             string nome = Console.ReadLine();
             Console.Write("Haverá deposito inicial? (s/n) ");
-            string escolha = Console.ReadLine();
+            char escolha = char.Parse(Console.ReadLine());
 
-            if (escolha == "s")
+            if (escolha == 's' || escolha == 'S')
             {
                 Console.Write("Entre o valor de depósito incial: ");
                 double saldoInicial = double.Parse(Console.ReadLine());
