@@ -28,8 +28,11 @@ namespace ExContaBancariaPOO
             }
 
             Console.WriteLine("Dados da Conta: ");
-            Console.WriteLine($"Conta {conta.NumeroConta}, Titular: {conta.Nome}, Saldo: {conta.Saldo}");
+            Console.WriteLine(conta);
 
+            Console.Write("Entre um valor de depósito: ");
+
+            
 
         }
     }

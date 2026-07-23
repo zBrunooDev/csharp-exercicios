@@ -28,5 +28,10 @@ namespace ExContaBancariaPOO
             return deposito + Saldo;
         }
 
+        public override string ToString()
+        {
+            return $"Conta {NumeroConta}, Titular: {Nome}, Saldo: {Saldo}";
+        }
+
     }
 }
