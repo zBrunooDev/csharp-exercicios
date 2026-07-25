@@ -20,7 +20,7 @@ namespace Ex1173
             }
             for (int i = 0; i < vet.Length; i++)
             {
-                Console.WriteLine(vet[i]);
+                Console.WriteLine($"N[{i}] = {vet[i]}");
             }
         }
     }
