@@ -23,7 +23,6 @@ namespace Ex1174
                     Console.WriteLine($"A[{i}] = {vet[i]:F1}");
                 }
             }
-
         }
     }
 }

@@ -10,7 +10,15 @@ namespace ExRentedRooms
     {
         public string Name {  get; set; }
         public string Email { get; set; }
-        public int Room { get; set; }
+        public Students (string nome,  string email)
+        {
+            Name = nome;
+            Email = email;
+        }
+        public override string ToString()
+        {
+             return Name + " " + Email;
+        }
 
     }
 }

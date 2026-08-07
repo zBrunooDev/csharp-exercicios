@@ -25,7 +25,12 @@ namespace ExRentedRooms
                 Console.Write("Room: ");
                 int room = int.Parse(Console.ReadLine());
 
-                roomsRetend[i] = new Students {Name = name, Email = email, Room = room};
+
+                if (roomsRetend[i] == null)
+                    roomsRetend[room] = new Students { Name = name, Email = email, Room = room };
+
+                else Console.WriteLine("Quarto já alugado.");
+
                 Console.WriteLine();
             }
 
