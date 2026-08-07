@@ -10,14 +10,19 @@ namespace ExRentedRooms
     {
         static void Main(string[] args)
         {
-            Console.Write("How many rooms will be rented? ");
-            int rooms = int.Parse(Console.ReadLine());
 
             Students[] roomsRetend = new Students[10];
 
-            for (int i = 0; i < rooms; i++)
+            Console.Write("How many rooms will be rented? ");
+            int rooms = int.Parse(Console.ReadLine());
+
+            
+
+            for (int i = 1; i <= rooms; i++)
             {
-                Console.WriteLine($"Rent #{i + 1}:");
+
+                Console.WriteLine();
+                Console.WriteLine($"Rent #{i}:");
                 Console.Write("Name: ");
                 string name = Console.ReadLine();
                 Console.Write("Email: ");
@@ -25,20 +30,19 @@ namespace ExRentedRooms
                 Console.Write("Room: ");
                 int room = int.Parse(Console.ReadLine());
 
+                roomsRetend[room] = new Students(name, email);
 
-                if (roomsRetend[i] == null)
-                    roomsRetend[room] = new Students { Name = name, Email = email, Room = room };
-
-                else Console.WriteLine("Quarto já alugado.");
-
-                Console.WriteLine();
             }
 
-            for(int i = 0;i < rooms; i++)
+            Console.WriteLine();
+            Console.WriteLine($"Busy rooms: ");
+            for (int i = 0;i < 10; i++)
             {
-                Console.WriteLine($"Busy rooms: ");
-                Console.WriteLine($"{roomsRetend[i].Room}: {roomsRetend[i].Name}, {roomsRetend[i].Email}");
 
+                if(roomsRetend[i] != null)
+                {
+                    Console.WriteLine(i + ": " + roomsRetend[i]);
+                }
             }
 
         }
