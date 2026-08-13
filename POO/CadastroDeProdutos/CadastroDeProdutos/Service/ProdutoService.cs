@@ -26,6 +26,10 @@ namespace CadastroDeProdutos.Service
                 Quantidade = quantidade
             };     
         }
+        public void SalvarCadastro(Produto produto)
+        {
+            produtos.Add(produto);
+        }
         // Listar Produto
         // Buscar por ID
         // Deletar Produto
