@@ -46,6 +46,10 @@ namespace CadastroDeProdutos.Service
         }
 
         // Deletar Produto
+        public void DeleteProduto(int id)
+        {
+            produtos.Remove(GetProduto(id));
+        }
 
     }
 }
