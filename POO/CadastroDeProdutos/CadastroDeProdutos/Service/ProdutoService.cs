@@ -13,7 +13,7 @@ namespace CadastroDeProdutos.Service
     {
 
         private List<Produto> produtos = new List<Produto>();
-        static int contId = 0;
+        private int contId = 0;
 
         // Cadastrar Produto
         public Produto CadastrarProduto(string nome, double preco, int quantidade)

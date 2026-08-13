@@ -3,12 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CadastroDeProdutos.Service;
 
 namespace CadastroDeProdutos.UI
 {
     public class Menu
     {
+        static ProdutoService produtoService = new ProdutoService();
+
         public void Start()
+        {
+            Display();
+        }
+
+        static void Display()
         {
 
             Console.WriteLine("=== Cadastro de Produtos ===\r\n");
@@ -46,37 +54,30 @@ namespace CadastroDeProdutos.UI
 
         static void CadastrarProduto()
         {
-
-            Produto produto = new Produto();
-            produto.Id = contId;
-            contId++;
-
             Console.WriteLine("Digite o nome do Produto: ");
-            produto.Nome = Console.ReadLine();
+            string nome = Console.ReadLine();
             Console.WriteLine("Digite o preço do Produto: ");
-            produto.Preco = double.Parse(Console.ReadLine());
+            double preco = double.Parse(Console.ReadLine());
             Console.WriteLine("Digite a quantidade do Produto: ");
-            produto.Quantidade = int.Parse(Console.ReadLine());
+            int quantidade = int.Parse(Console.ReadLine());
 
-            produtos.Add(produto);
+            produtoService.CadastrarProduto(nome, preco, quantidade);
+
             Console.WriteLine("Produto cadastrado!");
-
         }
 
-        public static void ListarProduto()
+        static void ListarProduto()
         {
-            if (produtos.Count == 0)
+            var produtos = produtoService.PegarTodos();
+            if(produtos.Count == 0)
             {
-                Console.WriteLine("Nenhum Produto cadastrado!");
+                Console.WriteLine("Não há produtos cadastratos.");
+                return;
             }
-            else
+            foreach(Produto produto in produtos)
             {
-                foreach (Produto produto in produtos)
-                {
-                    Console.WriteLine($"Id: {produto.Id}, Nome: {produto.Nome}, R$ {produto.Preco}, Quantidade: {produto.Quantidade}");
-                }
+                Console.WriteLine($"Produtos: {produto.Id}, {produto.Nome}, {produto.Preco:F2},{produto.Quantidade}");
             }
-
         }
 
         public static void BuscarPorId()
