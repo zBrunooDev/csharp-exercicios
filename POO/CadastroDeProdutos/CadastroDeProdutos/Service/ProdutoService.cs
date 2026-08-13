@@ -12,8 +12,8 @@ namespace CadastroDeProdutos.Service
     internal class ProdutoService
     {
 
-        static List<Produto> produtos = new List<Produto>();
-        static int contId = 1;
+        private List<Produto> produtos = new List<Produto>();
+        static int contId = 0;
 
         // Cadastrar Produto
         public Produto CadastrarProduto(string nome, double preco, int quantidade)
@@ -31,6 +31,10 @@ namespace CadastroDeProdutos.Service
             produtos.Add(produto);
         }
         // Listar Produto
+        public List<Produto> PegarTodos()
+        {
+            return produtos;
+        }
         // Buscar por ID
         // Deletar Produto
 
