@@ -49,6 +49,10 @@ namespace CadastroDeProdutos
                         BuscarPorId();
                         Menu();
                         break;
+                    case 5:
+                        Delete();
+                        Menu();
+                        break;
                 }
 
             } while (opcao != 0);
@@ -56,11 +60,11 @@ namespace CadastroDeProdutos
 
         public static void CadastrarProduto()
         {
-            
+
             Produto produto = new Produto();
             produto.Id = contId;
             contId++;
-            
+
             Console.WriteLine("Digite o nome do Produto: ");
             produto.Nome = Console.ReadLine();
             Console.WriteLine("Digite o preço do Produto: ");
@@ -70,18 +74,18 @@ namespace CadastroDeProdutos
 
             produtos.Add(produto);
             Console.WriteLine("Produto cadastrado!");
-            
+
         }
 
         public static void ListarProduto()
         {
-            if(produtos.Count == 0)
+            if (produtos.Count == 0)
             {
                 Console.WriteLine("Nenhum Produto cadastrado!");
             }
             else
             {
-                foreach(Produto produto in produtos)
+                foreach (Produto produto in produtos)
                 {
                     Console.WriteLine($"Id: {produto.Id}, Nome: {produto.Nome}, R$ {produto.Preco}, Quantidade: {produto.Quantidade}");
                 }
@@ -94,14 +98,30 @@ namespace CadastroDeProdutos
             Console.Write("Digite código do produto (Id): ");
             int procurarId = int.Parse(Console.ReadLine());
 
-            foreach(Produto produto in produtos)
+            foreach (Produto produto in produtos)
             {
-                if( produto.Id == procurarId)
+                if (produto.Id == procurarId)
                 {
                     Console.WriteLine($"Id: {produto.Id}, Nome: {produto.Nome}, R$ {produto.Preco}, Quantidade: {produto.Quantidade}");
                 }
             }
-            
+
+        }
+
+        public static void Delete()
+        {
+            Console.Write("Digite código do produto (Id): ");
+            int id = int.Parse(Console.ReadLine());
+
+            foreach(Produto produto in produtos)
+            {
+                if(produto.Id == id)
+                {
+                    produtos.Remove(produto);
+                }
+                else return;
+            }
+
         }
     }
 }
