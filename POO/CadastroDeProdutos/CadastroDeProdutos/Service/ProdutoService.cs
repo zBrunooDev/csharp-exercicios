@@ -36,6 +36,15 @@ namespace CadastroDeProdutos.Service
             return produtos;
         }
         // Buscar por ID
+        public Produto GetProduto(int id)
+        {
+            foreach (Produto produto in produtos)
+            {
+                if(produto.Id == id) return produto;
+            }
+            return null;
+        }
+
         // Deletar Produto
 
     }
