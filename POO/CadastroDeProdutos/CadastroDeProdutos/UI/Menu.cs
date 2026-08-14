@@ -82,16 +82,12 @@ namespace CadastroDeProdutos.UI
 
         public static void BuscarPorId()
         {
-            Console.Write("Digite código do produto (Id): ");
-            int procurarId = int.Parse(Console.ReadLine());
+            Console.WriteLine("Digite o ID: ");
+            int id = int.Parse(Console.ReadLine());
 
-            foreach (Produto produto in produtos)
-            {
-                if (produto.Id == procurarId)
-                {
-                    Console.WriteLine($"Id: {produto.Id}, Nome: {produto.Nome}, R$ {produto.Preco}, Quantidade: {produto.Quantidade}");
-                }
-            }
+            var produto = produtoService.GetProduto(id);
+
+            Console.WriteLine($"Produtos: {produto.Id}, {produto.Nome}, {produto.Preco:F2},{produto.Quantidade}");
 
         }
 
@@ -100,15 +96,23 @@ namespace CadastroDeProdutos.UI
             Console.Write("Digite código do produto (Id): ");
             int id = int.Parse(Console.ReadLine());
 
-            foreach (Produto produto in produtos)
+            var produto = produtoService.GetProduto(id);
+
+            Console.WriteLine($"Produtos: {produto.Id}, {produto.Nome}, {produto.Preco:F2},{produto.Quantidade}");
+
+            Console.WriteLine();
+
+            Console.WriteLine("Quer mesmo excluir esse Produto? (0 - Não / 1 - Sim");
+            int opcao = int.Parse(Console.ReadLine());
+
+            if( opcao == 0)
             {
-                if (produto.Id == id)
-                {
-                    produtos.Remove(produto);
-                }
-                else return;
+                return;
             }
 
+            produtoService.DeleteProduto(id);
+
+            Console.WriteLine("Produto excluido com sucesso!");
         }
 
     }
