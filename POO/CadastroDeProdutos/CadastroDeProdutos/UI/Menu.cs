@@ -69,7 +69,7 @@ namespace CadastroDeProdutos.UI
             Console.WriteLine("Digite a quantidade do Produto: ");
             int quantidade = int.Parse(Console.ReadLine());
 
-            produtoService.CadastrarProduto(nome, preco, quantidade);
+            produtoService.RegistrarProduto(nome, preco, quantidade);
 
             Console.WriteLine("Produto cadastrado!");
         }
