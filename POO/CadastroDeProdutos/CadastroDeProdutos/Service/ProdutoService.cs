@@ -6,6 +6,7 @@ using System.Runtime.InteropServices;
 using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.SqlServer.Server;
 
 namespace CadastroDeProdutos.Service
 {
@@ -58,5 +59,9 @@ namespace CadastroDeProdutos.Service
             produtos.Remove(GetProduto(id));
         }
 
+        public void ToString(Produto produto)
+        {
+            Console.WriteLine($"ID: {produto.Id}, Nome: {produto.Nome}, Preço: {produto.Preco:F2}, Quantidade: {produto.Quantidade}");
+        }
     }
 }

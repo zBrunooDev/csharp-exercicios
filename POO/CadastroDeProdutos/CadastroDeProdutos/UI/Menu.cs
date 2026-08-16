@@ -84,7 +84,7 @@ namespace CadastroDeProdutos.UI
             }
             foreach(Produto produto in produtos)
             {
-                Console.WriteLine($"Produtos: {produto.Id}, {produto.Nome}, {produto.Preco:F2},{produto.Quantidade}");
+                produtoService.ToString(produto);
             }
         }
 
@@ -95,7 +95,7 @@ namespace CadastroDeProdutos.UI
 
             var produto = produtoService.GetProduto(id);
 
-            Console.WriteLine($"Produtos: {produto.Id}, {produto.Nome}, {produto.Preco:F2},{produto.Quantidade}");
+            produtoService.ToString(produto);
 
         }
 
@@ -106,7 +106,7 @@ namespace CadastroDeProdutos.UI
 
             var produto = produtoService.GetProduto(id);
 
-            Console.WriteLine($"Produtos: {produto.Id}, {produto.Nome}, {produto.Preco:F2},{produto.Quantidade}");
+            produtoService.ToString(produto);
 
             Console.WriteLine();
 
