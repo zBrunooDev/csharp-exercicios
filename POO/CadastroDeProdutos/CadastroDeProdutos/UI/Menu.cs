@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -73,7 +74,7 @@ namespace CadastroDeProdutos.UI
 
             Console.WriteLine("Produto cadastrado!");
         }
-
+        // Listagem de produtos
         static void ListarProduto()
         {
             var produtos = produtoService.PegarTodos();
@@ -87,19 +88,21 @@ namespace CadastroDeProdutos.UI
                 produtoService.ToString(produto);
             }
         }
-
-        public static void BuscarPorId()
+        //Buscar por ID
+        static void BuscarPorId()
         {
-            Console.WriteLine("Digite o ID: ");
-            int id = int.Parse(Console.ReadLine());
-
-            var produto = produtoService.GetProduto(id);
-
+            var produto = SelecionarPorId();
+            if (produto == null )return;
             produtoService.ToString(produto);
 
         }
-
-        public static void Delete()
+        //Atualizar dados de algum produto
+        static void AtualizarProduto()
+        {
+            
+        }
+        //Deletar produto
+        static void Delete()
         {
             Console.Write("Digite código do produto (Id): ");
             int id = int.Parse(Console.ReadLine());
@@ -136,6 +139,22 @@ namespace CadastroDeProdutos.UI
                 return option;
             }
             return -1;
+        }
+        //Método auxiliar para pegar por ID:
+        static Produto SelecionarPorId()
+        {
+            int id = ReadOption("Digite o ID: ");
+            if(id == -1)
+            {
+                Console.WriteLine("Opção invalida!");
+                return null;
+            }
+            var produto = produtoService.GetProduto(id);
+            if (produto == null)
+            {
+                Console.WriteLine("Id não encontrado!");
+            }
+                return produto;
         }
 
     }
