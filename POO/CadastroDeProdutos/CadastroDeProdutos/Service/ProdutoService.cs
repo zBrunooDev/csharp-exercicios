@@ -21,6 +21,7 @@ namespace CadastroDeProdutos.Service
             contId += 1;
             return new Produto()
             {
+                Id = contId,
                 Nome = nome,
                 Preco = preco,
                 Quantidade = quantidade
