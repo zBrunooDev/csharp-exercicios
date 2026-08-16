@@ -52,7 +52,13 @@ namespace CadastroDeProdutos.Service
             }
             return null;
         }
-
+        // Atualizar produto
+        public void AtualizarProduto(Produto produto, string nome, double preco, int quantidade)
+        {
+            produto.Nome = nome;
+            produto.Preco = preco;
+            produto.Quantidade = quantidade;
+        }
         // Deletar Produto
         public void DeleteProduto(int id)
         {

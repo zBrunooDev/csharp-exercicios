@@ -38,6 +38,9 @@ namespace CadastroDeProdutos.UI
                         case 3:
                             BuscarPorId();
                             break;
+                        case 4:
+                            AtualizarProduto();
+                            break;
                         case 5:
                             Delete();
                             break;
@@ -99,7 +102,17 @@ namespace CadastroDeProdutos.UI
         //Atualizar dados de algum produto
         static void AtualizarProduto()
         {
-            
+            var produto = SelecionarPorId();
+            produtoService.ToString(produto);
+            Console.WriteLine();
+            Console.WriteLine("Digite o nome do Produto: ");
+            string nome = Console.ReadLine();
+            Console.WriteLine("Digite o preço do Produto: ");
+            double preco = double.Parse(Console.ReadLine());
+            Console.WriteLine("Digite a quantidade do Produto: ");
+            int quantidade = int.Parse(Console.ReadLine());
+
+            produtoService.AtualizarProduto(produto, nome, preco, quantidade);
         }
         //Deletar produto
         static void Delete()
