@@ -66,11 +66,11 @@ namespace CadastroDeProdutos.UI
 
         static void CadastrarProduto()
         {
-            Console.WriteLine("Digite o nome do Produto: ");
+            Console.Write("Digite o nome do Produto: ");
             string nome = Console.ReadLine();
-            Console.WriteLine("Digite o preço do Produto: ");
+            Console.Write("Digite o preço do Produto: R$ ");
             double preco = double.Parse(Console.ReadLine());
-            Console.WriteLine("Digite a quantidade do Produto: ");
+            Console.Write("Digite a quantidade do Produto: ");
             int quantidade = int.Parse(Console.ReadLine());
 
             produtoService.RegistrarProduto(nome, preco, quantidade);
@@ -105,11 +105,11 @@ namespace CadastroDeProdutos.UI
             var produto = SelecionarPorId();
             produtoService.ToString(produto);
             Console.WriteLine();
-            Console.WriteLine("Digite o nome do Produto: ");
+            Console.Write("Digite o nome do Produto: ");
             string nome = Console.ReadLine();
-            Console.WriteLine("Digite o preço do Produto: ");
+            Console.Write("Digite o preço do Produto: R$ ");
             double preco = double.Parse(Console.ReadLine());
-            Console.WriteLine("Digite a quantidade do Produto: ");
+            Console.Write("Digite a quantidade do Produto: ");
             int quantidade = int.Parse(Console.ReadLine());
 
             produtoService.AtualizarProduto(produto, nome, preco, quantidade);
