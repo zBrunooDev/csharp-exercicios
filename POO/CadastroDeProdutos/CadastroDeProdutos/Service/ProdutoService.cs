@@ -44,7 +44,7 @@ namespace CadastroDeProdutos.Service
             return produtos;
         }
         // Buscar por ID
-        public Produto GetProduto(int id)
+        public Produto PegarProduto(int id)
         {
             foreach (Produto produto in produtos)
             {
@@ -60,14 +60,9 @@ namespace CadastroDeProdutos.Service
             produto.Quantidade = quantidade;
         }
         // Deletar Produto
-        public void DeleteProduto(int id)
+        public void DeletarProduto(int id)
         {
-            produtos.Remove(GetProduto(id));
-        }
-
-        public void ToString(Produto produto)
-        {
-            Console.WriteLine($"ID: {produto.Id}, Nome: {produto.Nome}, Preço: {produto.Preco:F2}, Quantidade: {produto.Quantidade}");
+            produtos.Remove(PegarProduto(id));
         }
     }
 }

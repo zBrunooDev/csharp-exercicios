@@ -88,7 +88,7 @@ namespace CadastroDeProdutos.UI
             }
             foreach(Produto produto in produtos)
             {
-                produtoService.ToString(produto);
+                ToString(produto);
             }
         }
         //Buscar por ID
@@ -96,14 +96,14 @@ namespace CadastroDeProdutos.UI
         {
             var produto = SelecionarPorId();
             if (produto == null )return;
-            produtoService.ToString(produto);
+            ToString(produto);
 
         }
         //Atualizar dados de algum produto
         static void AtualizarProduto()
         {
             var produto = SelecionarPorId();
-            produtoService.ToString(produto);
+            ToString(produto);
             Console.WriteLine();
             Console.Write("Digite o nome do Produto: ");
             string nome = Console.ReadLine();
@@ -120,9 +120,9 @@ namespace CadastroDeProdutos.UI
             Console.Write("Digite código do produto (Id): ");
             int id = int.Parse(Console.ReadLine());
 
-            var produto = produtoService.GetProduto(id);
+            var produto = produtoService.PegarProduto(id);
 
-            produtoService.ToString(produto);
+            ToString(produto);
 
             Console.WriteLine();
 
@@ -134,7 +134,7 @@ namespace CadastroDeProdutos.UI
                 return;
             }
 
-            produtoService.DeleteProduto(id);
+            produtoService.DeletarProduto(id);
 
             Console.WriteLine("Produto excluido com sucesso!");
         }
@@ -162,12 +162,17 @@ namespace CadastroDeProdutos.UI
                 Console.WriteLine("Opção invalida!");
                 return null;
             }
-            var produto = produtoService.GetProduto(id);
+            var produto = produtoService.PegarProduto(id);
             if (produto == null)
             {
                 Console.WriteLine("Id não encontrado!");
             }
                 return produto;
+        }
+
+        static void ToString(Produto produto)
+        {
+            Console.WriteLine($"ID: {produto.Id}, Nome: {produto.Nome}, Preço: {produto.Preco:F2}, Quantidade: {produto.Quantidade}");
         }
 
     }
