@@ -121,6 +121,11 @@ namespace CadastroDeProdutos.UI
             int id = int.Parse(Console.ReadLine());
 
             var produto = produtoService.PegarProduto(id);
+            if (produto == null)
+            {
+                Console.WriteLine("Produto inexistente! ");
+                return;
+            }
 
             ToString(produto);
 

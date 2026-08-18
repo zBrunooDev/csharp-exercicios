@@ -62,7 +62,9 @@ namespace CadastroDeProdutos.Service
         // Deletar Produto
         public void DeletarProduto(int id)
         {
-            produtos.Remove(PegarProduto(id));
+            var produto = PegarProduto(id);
+            if (produto == null) return;
+            produtos.Remove(produto);
         }
     }
 }
