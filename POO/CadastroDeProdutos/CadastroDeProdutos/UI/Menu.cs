@@ -106,6 +106,7 @@ namespace CadastroDeProdutos.UI
         static void AtualizarProduto()
         {
             var produto = SelecionarPorId();
+            if (produto == null )return;
             EscreverProduto(produto);
             Console.WriteLine();
             Console.Write("Digite o nome do Produto: ");
@@ -121,6 +122,7 @@ namespace CadastroDeProdutos.UI
         static void DeletarProduto()
         {
             var produto = SelecionarPorId();
+            if (produto == null) return;
 
             EscreverProduto(produto);
 
