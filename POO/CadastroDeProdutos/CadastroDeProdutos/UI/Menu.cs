@@ -25,27 +25,30 @@ namespace CadastroDeProdutos.UI
                     Console.WriteLine("opção invalida!");
                     continue;
                 }
-                else
+                
+                switch (opcao)
                 {
-                    switch (opcao)
-                    {
-                        case 1:
-                            CadastrarProduto();
-                            break;
-                        case 2:
-                            ListarProduto();
-                            break;
-                        case 3:
-                            BuscarPorId();
-                            break;
-                        case 4:
-                            AtualizarProduto();
-                            break;
-                        case 5:
-                            Delete();
-                            break;
-                    }
+                    case 1:
+                        CadastrarProduto();
+                        break;
+                    case 2:
+                        ListarProduto();
+                        break;
+                    case 3:
+                        BuscarPorId();
+                        break;
+                    case 4:
+                        AtualizarProduto();
+                        break;
+                    case 5:
+                        DeletarProduto();
+                        break;
+                    case 0:
+                        Console.WriteLine("Encerrando programa!");
+                        running = false;
+                        break;
                 }
+                
             }
         }
         static void Display()
@@ -88,7 +91,7 @@ namespace CadastroDeProdutos.UI
             }
             foreach(Produto produto in produtos)
             {
-                ToString(produto);
+                EscreverProduto(produto);
             }
         }
         //Buscar por ID
@@ -96,14 +99,14 @@ namespace CadastroDeProdutos.UI
         {
             var produto = SelecionarPorId();
             if (produto == null )return;
-            ToString(produto);
+            EscreverProduto(produto);
 
         }
         //Atualizar dados de algum produto
         static void AtualizarProduto()
         {
             var produto = SelecionarPorId();
-            ToString(produto);
+            EscreverProduto(produto);
             Console.WriteLine();
             Console.Write("Digite o nome do Produto: ");
             string nome = Console.ReadLine();
@@ -115,19 +118,11 @@ namespace CadastroDeProdutos.UI
             produtoService.AtualizarProduto(produto, nome, preco, quantidade);
         }
         //Deletar produto
-        static void Delete()
+        static void DeletarProduto()
         {
-            Console.Write("Digite código do produto (Id): ");
-            int id = int.Parse(Console.ReadLine());
+            var produto = SelecionarPorId();
 
-            var produto = produtoService.PegarProduto(id);
-            if (produto == null)
-            {
-                Console.WriteLine("Produto inexistente! ");
-                return;
-            }
-
-            ToString(produto);
+            EscreverProduto(produto);
 
             Console.WriteLine();
 
@@ -139,7 +134,7 @@ namespace CadastroDeProdutos.UI
                 return;
             }
 
-            produtoService.DeletarProduto(id);
+            produtoService.DeletarProduto(produto.Id);
 
             Console.WriteLine("Produto excluido com sucesso!");
         }
@@ -171,11 +166,12 @@ namespace CadastroDeProdutos.UI
             if (produto == null)
             {
                 Console.WriteLine("Id não encontrado!");
+                return null;
             }
                 return produto;
         }
 
-        static void ToString(Produto produto)
+        static void EscreverProduto(Produto produto)
         {
             Console.WriteLine($"ID: {produto.Id}, Nome: {produto.Nome}, Preço: {produto.Preco:F2}, Quantidade: {produto.Quantidade}");
         }
