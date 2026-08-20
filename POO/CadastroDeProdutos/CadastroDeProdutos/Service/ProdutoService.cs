@@ -64,7 +64,7 @@ namespace CadastroDeProdutos.Service
         {
             var produto = PegarProduto(id);
             if (produto == null) return;
-            produtos.Remove(produto);
+            produtos.Remove(produto);   
         }
     }
 }

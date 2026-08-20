@@ -13,13 +13,13 @@ namespace CadastroDeProdutos.UI
     {
         static ProdutoService produtoService = new ProdutoService();
 
-        public void Start()
+        public void Comecar()
         {
             bool running = true;
             while (running)
             {
-                Display();
-                int opcao = ReadOption("");
+                Tela();
+                int opcao = LerEntrada("");
                 if (opcao == -1)
                 {
                     Console.WriteLine("opção invalida!");
@@ -51,7 +51,7 @@ namespace CadastroDeProdutos.UI
                 
             }
         }
-        static void Display()
+        static void Tela()
         {
 
             Console.WriteLine("=== Cadastro de Produtos ===\r\n");
@@ -141,7 +141,7 @@ namespace CadastroDeProdutos.UI
             Console.WriteLine("Produto excluido com sucesso!");
         }
 
-        static int ReadOption(string message)
+        static int LerEntrada(string message)
         {
             Console.Write($"{message}");
             string input = Console.ReadLine();
@@ -158,7 +158,7 @@ namespace CadastroDeProdutos.UI
         //Método auxiliar para pegar por ID:
         static Produto SelecionarPorId()
         {
-            int id = ReadOption("Digite o ID: ");
+            int id = LerEntrada("Digite o ID: ");
             if(id == -1)
             {
                 Console.WriteLine("Opção invalida!");
