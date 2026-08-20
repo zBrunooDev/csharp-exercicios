@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 using CadastroDeProdutos.Service;
@@ -69,12 +70,9 @@ namespace CadastroDeProdutos.UI
 
         static void CadastrarProduto()
         {
-            Console.Write("Digite o nome do Produto: ");
-            string nome = Console.ReadLine();
-            Console.Write("Digite o preço do Produto: R$ ");
-            double preco = double.Parse(Console.ReadLine());
-            Console.Write("Digite a quantidade do Produto: ");
-            int quantidade = int.Parse(Console.ReadLine());
+            string nome = LerNome("Digite o nome do Produto: ");
+            double preco = LerDouble("Digite o preço do Produto: R$ ");
+            int quantidade = LerEntrada("Digite a quantidade do Produto: ");
 
             produtoService.RegistrarProduto(nome, preco, quantidade);
 
@@ -107,14 +105,14 @@ namespace CadastroDeProdutos.UI
         {
             var produto = SelecionarPorId();
             if (produto == null )return;
+
             EscreverProduto(produto);
+
             Console.WriteLine();
-            Console.Write("Digite o nome do Produto: ");
-            string nome = Console.ReadLine();
-            Console.Write("Digite o preço do Produto: R$ ");
-            double preco = double.Parse(Console.ReadLine());
-            Console.Write("Digite a quantidade do Produto: ");
-            int quantidade = int.Parse(Console.ReadLine());
+
+            string nome = LerNome("Digite o nome do Produto: ");
+            double preco = LerDouble("Digite o preço do Produto: R$ ");
+            int quantidade = LerEntrada("Digite a quantidade do Produto: ");
 
             produtoService.AtualizarProduto(produto, nome, preco, quantidade);
         }
@@ -140,7 +138,7 @@ namespace CadastroDeProdutos.UI
 
             Console.WriteLine("Produto excluido com sucesso!");
         }
-
+        // Ler entrada para tipo inteiro
         static int LerEntrada(string message)
         {
             Console.Write($"{message}");
@@ -155,6 +153,39 @@ namespace CadastroDeProdutos.UI
             }
             return -1;
         }
+        //Ler entrada para tipo Double
+        static double LerDouble(string mensagem)
+        {
+            Console.Write($"{mensagem}");
+            string input = Console.ReadLine();
+
+            double valorDouble;
+            bool isNumber = Double.TryParse(input, out valorDouble);
+
+            if (isNumber)
+            {
+                return valorDouble;
+            }
+            return -1;
+        }
+
+        //Campo para ler o Nome
+
+        static string LerNome(string mensagem)
+        {
+            // preciso arrumar
+            string nome;
+            do
+            {
+                bool loop = true;
+                Console.Write($"{mensagem}");
+                nome = Console.ReadLine();
+                if(nome =="") loop = false;
+            } while (false);
+
+            return nome;
+        }
+
         //Método auxiliar para pegar por ID:
         static Produto SelecionarPorId()
         {
