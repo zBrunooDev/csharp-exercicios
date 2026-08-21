@@ -10,6 +10,7 @@ namespace EmployeeExercice
     {
         static void Main(string[] args)
         {
+
         }
     }
 }
