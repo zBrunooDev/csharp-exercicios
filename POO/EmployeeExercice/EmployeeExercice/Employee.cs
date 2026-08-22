@@ -19,5 +19,10 @@ namespace EmployeeExercice
             Salary = salary;
         }
 
+        public override string ToString()
+        {
+            return $"ID: {Id}, Name: {Name}, Salary: R$ {Salary.ToString("F2")}";
+        }
+
     }
 }
