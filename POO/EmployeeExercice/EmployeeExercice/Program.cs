@@ -46,13 +46,23 @@ namespace EmployeeExercice
 
             Console.Write("Enter the employee ID that will have salary increased: ");
             int employeeId = int.Parse(Console.ReadLine());
+            
+            var found = employees.Find(e => e.Id == employeeId);
 
-            //Employee employeeFind = employees.Find(e => e.Id == employeeId);
+            if (found == null)
+            {
+                Console.WriteLine("This id does not exist!");
+                foreach(Employee emp in employees)
+                {
+                    Console.WriteLine(emp);
+                }
+            }
+            else
+            {
+                Console.Write("Enter the percentage: ");
+                double percentage = double.Parse(Console.ReadLine());
 
-            Console.Write("Enter the porcentage: ");
-            double porcentage = double.Parse(Console.ReadLine());
-
-
+            }
         }
     }
 }
