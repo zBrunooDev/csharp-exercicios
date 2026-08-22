@@ -8,7 +8,7 @@ namespace EmployeeExercice
 {
     internal class Employee
     {
-        private int Id {  get; set; }
+        public int Id {  get; private set; }
         string Name { get; set; }
         private double Salary { get; set; }
 

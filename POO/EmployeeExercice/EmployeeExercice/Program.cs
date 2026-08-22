@@ -20,18 +20,39 @@ namespace EmployeeExercice
             for( int i = 1; i <= loop; i++)
             {
                 Console.WriteLine($"Employee #{i}");
-                Console.Write("Id: ");
-                int id = int.Parse(Console.ReadLine());
+                int id;
+                bool idExist;
+
+                do
+                {
+                    Console.Write("Id: ");
+                    id = int.Parse(Console.ReadLine());
+                    idExist = employees.Find(x => x.Id == id) != null;
+                    if (idExist)
+                    {
+                        Console.WriteLine("This ID already exists! Please enter it again.");
+                    }
+
+                } while (idExist);     
+                
                 Console.Write("Name: ");
                 string name = Console.ReadLine();
                 Console.Write("Salary: R$ ");
                 double salary = double.Parse(Console.ReadLine());
-                
                 employee = new Employee(id, name, salary);
 
                 employees.Add(employee);
-                
             }
+
+            Console.Write("Enter the employee ID that will have salary increased: ");
+            int employeeId = int.Parse(Console.ReadLine());
+
+            //Employee employeeFind = employees.Find(e => e.Id == employeeId);
+
+            Console.Write("Enter the porcentage: ");
+            double porcentage = double.Parse(Console.ReadLine());
+
+
         }
     }
 }
