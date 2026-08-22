@@ -19,6 +19,11 @@ namespace EmployeeExercice
             Salary = salary;
         }
 
+        public void IncreseadSalary(double percentage)
+        {
+            Salary += Salary * (percentage / 100);
+        }
+
         public override string ToString()
         {
             return $"ID: {Id}, Name: {Name}, Salary: R$ {Salary.ToString("F2")}";
