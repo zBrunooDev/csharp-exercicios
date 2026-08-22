@@ -62,6 +62,13 @@ namespace EmployeeExercice
                 Console.Write("Enter the percentage: ");
                 double percentage = double.Parse(Console.ReadLine());
 
+                Console.WriteLine();
+    
+                found.IncreseadSalary(percentage);
+                foreach (Employee emp in employees)
+                {
+                    Console.WriteLine(emp);
+                }
             }
         }
     }
