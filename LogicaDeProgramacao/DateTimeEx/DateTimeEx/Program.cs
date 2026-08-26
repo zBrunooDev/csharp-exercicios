@@ -35,6 +35,31 @@ namespace DateTimeEx
             {
                 Console.WriteLine("Data de nascimento inválida.");
             }
+
+            Console.Write("Digite uma data: ");
+            string dataFutura = Console.ReadLine();
+
+            DateTime dataFuturaFormatada;
+
+            if (DateTime.TryParse(dataFutura, out dataFuturaFormatada))
+            {
+                TimeSpan diferenca = dataFuturaFormatada - DateTime.Now;
+
+                int diasRestantes = diferenca.Days;
+
+                if (diasRestantes > 0)
+                {
+                    Console.WriteLine($"Faltam {diasRestantes} dias para a data informada.");
+                }
+                else if (diasRestantes == 0)
+                {
+                    Console.WriteLine("A data informada é hoje!");
+                }
+                else
+                {
+                    Console.WriteLine($"A data informada já passou faz {Math.Abs(diasRestantes)} dias.");
+                }
+            }
         }
     }
 }
