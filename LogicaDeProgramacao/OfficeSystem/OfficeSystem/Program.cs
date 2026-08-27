@@ -10,6 +10,11 @@ namespace OfficeSystem
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Sitema  de marcação de tempo");
+
+            Console.Write("Entrada: ");
+            DateTime entrada = DateTime.Parse(Console.ReadLine());
+
         }
     }
 }
