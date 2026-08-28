@@ -28,17 +28,23 @@ namespace OfficeSystem
 
             //calculo dos 2 periodos
 
-            TimeSpan periodo1 = saidaAlmoco - entrada;
+            TimeSpan periodoManha = saidaAlmoco - entrada;
 
             TimeSpan horarioAlmoco = voltaAlmoco - saidaAlmoco;
 
-            TimeSpan periodo2 = voltaAlmoco - saida;
+            TimeSpan periodoTarde = saida - voltaAlmoco;
 
-            TimeSpan totalTrabalhado = periodo1 + periodo2;
+            TimeSpan totalTrabalhado = periodoManha + periodoTarde;
 
+            TimeSpan cargaHoraria = new TimeSpan(08, 48, 00);
 
+            TimeSpan saldo = totalTrabalhado - cargaHoraria;
 
+            //Saida
 
+            Console.WriteLine($"Carga esperada: {cargaHoraria:hh\\:mm}");
+            Console.WriteLine($"Trabalhado: {totalTrabalhado:hh\\:mm}");
+            Console.WriteLine($"Saldo: {saldo}");
         }
 
     }
