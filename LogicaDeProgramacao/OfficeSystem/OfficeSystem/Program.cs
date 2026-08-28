@@ -10,6 +10,8 @@ namespace OfficeSystem
     {
         static void Main(string[] args)
         {
+            //entrada de dados
+
             Console.WriteLine("Sitema  de marcação de tempo");
 
             Console.Write("Entrada: ");
@@ -23,6 +25,17 @@ namespace OfficeSystem
 
             Console.Write("Saída: ");
             DateTime saida = DateTime.Parse(Console.ReadLine());
+
+            //calculo dos 2 periodos
+
+            TimeSpan periodo1 = saidaAlmoco - entrada;
+
+            TimeSpan horarioAlmoco = voltaAlmoco - saidaAlmoco;
+
+            TimeSpan periodo2 = voltaAlmoco - saida;
+
+            TimeSpan totalTrabalhado = periodo1 + periodo2;
+
 
 
 
