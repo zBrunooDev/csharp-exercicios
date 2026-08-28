@@ -15,6 +15,18 @@ namespace OfficeSystem
             Console.Write("Entrada: ");
             DateTime entrada = DateTime.Parse(Console.ReadLine());
 
+            Console.Write("Saída para almoço: ");
+            DateTime saidaAlmoco = DateTime.Parse(Console.ReadLine());
+
+            Console.Write("Volta do almoço: ");
+            DateTime voltaAlmoco = DateTime.Parse(Console.ReadLine());
+
+            Console.Write("Saída: ");
+            DateTime saida = DateTime.Parse(Console.ReadLine());
+
+
+
         }
+
     }
 }
