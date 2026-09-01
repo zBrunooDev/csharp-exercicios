@@ -27,6 +27,20 @@ namespace OfficeSystem
         {
             registroPontos.Add(registroPonto);
         }
-        
+        // Read
+
+        public List<RegistroPonto> ListarPonto(int funcionarioId)
+        {
+            List<RegistroPonto> registroPontoFuncionario = new List<RegistroPonto>();
+            foreach (RegistroPonto registro in registroPontos)
+            {
+                if(registro.Funcionario.Id == funcionarioId)
+                {
+                    registroPontoFuncionario.Add(registro);
+                }
+                
+            }
+            return registroPontoFuncionario;
+        }
     }
 }
