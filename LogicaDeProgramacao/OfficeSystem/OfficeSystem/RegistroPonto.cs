@@ -7,7 +7,7 @@ using System.Xml.Schema;
 
 namespace OfficeSystem
 {
-    internal class ResgistroPonto
+    internal class RegistroPonto
     {
         public Funcionario Funcionario {  get; set; }
         public DateTime Entrada { get; set; }
@@ -15,7 +15,12 @@ namespace OfficeSystem
         public DateTime VoltaAlmoco { get; set; }
         public DateTime Saida { get; set; }
 
-        public TimeSpan CalcularTempoTrabalhodo()
+        public RegistroPonto(Funcionario funcionario)
+        {
+            Funcionario = funcionario;
+        }
+
+        public TimeSpan CalcularTempoTrabalhado()
         {
             TimeSpan primeiroPeriodo = SaidaAlmoco - Entrada;
             TimeSpan segundoPeriodo = Saida - VoltaAlmoco;
@@ -28,7 +33,7 @@ namespace OfficeSystem
 
         public TimeSpan CalcularBancoHoras()
         {
-            return CalcularTempoTrabalhodo() - Funcionario.CargaHoraria;
+            return CalcularTempoTrabalhado() - Funcionario.CargaHoraria;
         }
     }
 }
