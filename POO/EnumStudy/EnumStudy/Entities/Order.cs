@@ -8,5 +8,10 @@ namespace EnumStudy.Entities
         public int Id { get; set; }
         public DateTime Moment { get; set; }
         public OrderStatus Status { get; set; } // Property that will receive the enum status 
+
+        public override string ToString()
+        {
+            return $"{Id}, {Moment}, {Status}";
+        }
     }
 }
