@@ -12,5 +12,10 @@ namespace EnumStudy2
         public string Descricao { get; set; }
         public PrioridadeEnum Prioridade { get; set; }
 
+        public override string ToString()
+        {
+            return $"Id: {Id}\nDescrição: {Descricao}\nPrioridade: {Prioridade} ";
+        }
+
     }
 }
