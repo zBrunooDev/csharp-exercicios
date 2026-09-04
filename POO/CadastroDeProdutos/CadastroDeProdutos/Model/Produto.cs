@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CadastroDeProdutos.Model.Enum;
 
 namespace CadastroDeProdutos
 {
@@ -12,5 +13,7 @@ namespace CadastroDeProdutos
         public string Nome { get; set; }
         public double Preco {  get; set; }
         public int Quantidade { get; set; }
+        public StatusProduto Status {  get; set; }
+        public Categoria categoria { get; set; }
     }
 }
