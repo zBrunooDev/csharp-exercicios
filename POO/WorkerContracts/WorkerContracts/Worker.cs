@@ -14,7 +14,10 @@ namespace WorkerContracts
 
         public double BaseSalary { get; private set; }
 
-
+        public void AddContract(HourContract contract)
+        {
+            
+        }
 
     }
 }

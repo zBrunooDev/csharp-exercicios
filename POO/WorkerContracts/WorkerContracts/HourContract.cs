@@ -19,6 +19,5 @@ namespace WorkerContracts
         {
             return ValuePerHour * Hours;
         }
-
     }
 }

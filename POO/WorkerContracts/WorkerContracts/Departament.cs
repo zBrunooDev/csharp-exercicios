@@ -8,5 +8,6 @@ namespace WorkerContracts
 {
     internal class Departament
     {
+        public string Name { get; private set; }
     }
 }
