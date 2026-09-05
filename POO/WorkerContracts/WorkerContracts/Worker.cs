@@ -8,5 +8,13 @@ namespace WorkerContracts
 {
     internal class Worker
     {
+        public string Name { get; private set; }
+
+        public WorkerLevel Level { get; private set; }
+
+        public double BaseSalary { get; private set; }
+
+
+
     }
 }
