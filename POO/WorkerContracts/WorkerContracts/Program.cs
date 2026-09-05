@@ -10,6 +10,8 @@ namespace WorkerContracts
     {
         static void Main(string[] args)
         {
+
+
         }
     }
 }
