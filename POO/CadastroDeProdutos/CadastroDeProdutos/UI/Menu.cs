@@ -177,11 +177,9 @@ namespace CadastroDeProdutos.UI
             string nome;
             do
             {
-                bool loop = true;
                 Console.Write($"{mensagem}");
                 nome = Console.ReadLine();
-                if(nome =="") loop = false;
-            } while (false);
+            } while (string.IsNullOrWhiteSpace(nome));
 
             return nome;
         }
