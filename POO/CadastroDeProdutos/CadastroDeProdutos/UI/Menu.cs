@@ -6,6 +6,7 @@ using System.Runtime.InteropServices;
 using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
+using CadastroDeProdutos.Model.Enum;
 using CadastroDeProdutos.Service;
 
 namespace CadastroDeProdutos.UI
@@ -182,6 +183,23 @@ namespace CadastroDeProdutos.UI
             } while (string.IsNullOrWhiteSpace(nome));
 
             return nome;
+        }
+
+        Categoria LerEnum(string mensagem)
+        {
+            Console.Write($"{mensagem}");
+            bool conseguiuConverter;
+            do
+            {
+                string categoria = LerNome("Digite o nome da categoria: ");
+                Categoria categoriaConvertida;
+
+                conseguiuConverter = Enum.TryParse<Categoria>(categoria, out categoriaConvertida);
+            } while (!conseguiuConverter);
+
+            // Preciso fializar a logica
+
+            return categoriaConve;
         }
 
         //Método auxiliar para pegar por ID:
