@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -37,6 +38,8 @@ namespace WorkerContracts
                 Console.Write("Duration (hours): ");
                 int duration = int.Parse(Console.ReadLine());
 
+                HourContract hourContract = new HourContract(data, valuePerHouer, duration);
+                
             }
 
         }

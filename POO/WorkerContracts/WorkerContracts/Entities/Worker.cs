@@ -14,9 +14,11 @@ namespace WorkerContracts
 
         public double BaseSalary { get; private set; }
 
+        List<HourContract> contracts = new List<HourContract>();
+
         public void AddContract(HourContract contract)
         {
-            
+            contracts.Add(contract);
         }
 
     }
