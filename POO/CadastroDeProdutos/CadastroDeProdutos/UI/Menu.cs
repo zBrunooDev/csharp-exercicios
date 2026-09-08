@@ -69,8 +69,9 @@ namespace CadastroDeProdutos.UI
             Console.Write("Digite a opção: ");
         }
 
-        static void CadastrarProduto()
+        void CadastrarProduto()
         {
+            Categoria categoria = LerEnum();
             string nome = LerNome("Digite o nome do Produto: ");
             double preco = LerDouble("Digite o preço do Produto: R$ ");
             int quantidade = LerEntrada("Digite a quantidade do Produto: ");
@@ -185,21 +186,19 @@ namespace CadastroDeProdutos.UI
             return nome;
         }
 
-        Categoria LerEnum(string mensagem)
+        Categoria LerEnum()
         {
-            Console.Write($"{mensagem}");
+            Categoria categoriaConvertida;
             bool conseguiuConverter;
             do
             {
                 string categoria = LerNome("Digite o nome da categoria: ");
-                Categoria categoriaConvertida;
 
                 conseguiuConverter = Enum.TryParse<Categoria>(categoria, out categoriaConvertida);
+
             } while (!conseguiuConverter);
 
-            // Preciso fializar a logica
-
-            return categoriaConve;
+            return categoriaConvertida;
         }
 
         //Método auxiliar para pegar por ID:
