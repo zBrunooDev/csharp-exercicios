@@ -13,7 +13,7 @@ namespace CadastroDeProdutos.UI
 {
     public class Menu
     {
-        static ProdutoService produtoService = new ProdutoService();
+        ProdutoService produtoService = new ProdutoService();
 
         public void Comecar()
         {
@@ -53,7 +53,7 @@ namespace CadastroDeProdutos.UI
                 
             }
         }
-        static void Tela()
+        void Tela()
         {
 
             Console.WriteLine("=== Cadastro de Produtos ===\r\n");
@@ -81,7 +81,7 @@ namespace CadastroDeProdutos.UI
             Console.WriteLine("Produto cadastrado!");
         }
         // Listagem de produtos
-        static void ListarProduto()
+        void ListarProduto()
         {
             var produtos = produtoService.PegarTodos();
             if(produtos.Count == 0)
@@ -95,7 +95,7 @@ namespace CadastroDeProdutos.UI
             }
         }
         //Buscar por ID
-        static void BuscarPorId()
+        void BuscarPorId()
         {
             var produto = SelecionarPorId();
             if (produto == null )return;
@@ -103,7 +103,7 @@ namespace CadastroDeProdutos.UI
 
         }
         //Atualizar dados de algum produto
-        static void AtualizarProduto()
+        void AtualizarProduto()
         {
             var produto = SelecionarPorId();
             if (produto == null )return;
@@ -119,7 +119,7 @@ namespace CadastroDeProdutos.UI
             produtoService.AtualizarProduto(produto, nome, preco, quantidade);
         }
         //Deletar produto
-        static void DeletarProduto()
+        void DeletarProduto()
         {
             var produto = SelecionarPorId();
             if (produto == null) return;
@@ -141,7 +141,7 @@ namespace CadastroDeProdutos.UI
             Console.WriteLine("Produto excluido com sucesso!");
         }
         // Ler entrada para tipo inteiro
-        static int LerEntrada(string message)
+        int LerEntrada(string message)
         {
             Console.Write($"{message}");
             string input = Console.ReadLine();
@@ -156,7 +156,7 @@ namespace CadastroDeProdutos.UI
             return -1;
         }
         //Ler entrada para tipo Double
-        static double LerDouble(string mensagem)
+        double LerDouble(string mensagem)
         {
             Console.Write($"{mensagem}");
             string input = Console.ReadLine();
@@ -173,7 +173,7 @@ namespace CadastroDeProdutos.UI
 
         //Campo para ler o Nome
 
-        static string LerNome(string mensagem)
+        string LerNome(string mensagem)
         {
             // preciso arrumar
             string nome;
@@ -202,7 +202,7 @@ namespace CadastroDeProdutos.UI
         }
 
         //Método auxiliar para pegar por ID:
-        static Produto SelecionarPorId()
+        Produto SelecionarPorId()
         {
             int id = LerEntrada("Digite o ID: ");
             if(id == -1)
@@ -219,7 +219,7 @@ namespace CadastroDeProdutos.UI
                 return produto;
         }
 
-        static void EscreverProduto(Produto produto)
+        void EscreverProduto(Produto produto)
         {
             Console.WriteLine($"ID: {produto.Id}, Nome: {produto.Nome}, Preço: {produto.Preco:F2}, Quantidade: {produto.Quantidade}");
         }
