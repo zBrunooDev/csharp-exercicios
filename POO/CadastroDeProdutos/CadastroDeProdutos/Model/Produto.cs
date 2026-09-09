@@ -14,6 +14,6 @@ namespace CadastroDeProdutos
         public double Preco {  get; set; }
         public int Quantidade { get; set; }
         public StatusProduto Status {  get; set; }
-        public Categoria categoria { get; set; }
+        public Categoria Categoria { get; set; }
     }
 }

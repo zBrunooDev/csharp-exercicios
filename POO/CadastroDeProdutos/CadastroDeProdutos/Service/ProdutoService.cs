@@ -6,6 +6,7 @@ using System.Runtime.InteropServices;
 using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
+using CadastroDeProdutos.Model.Enum;
 using Microsoft.SqlServer.Server;
 
 namespace CadastroDeProdutos.Service
@@ -17,7 +18,7 @@ namespace CadastroDeProdutos.Service
         private int contId = 0;
 
         // Cadastrar Produto
-        public Produto CriarProduto(string nome, double preco, int quantidade)
+        public Produto CriarProduto(string nome, double preco, int quantidade, Categoria categoria)
         {
             contId += 1;
             return new Produto()
@@ -25,12 +26,13 @@ namespace CadastroDeProdutos.Service
                 Id = contId,
                 Nome = nome,
                 Preco = preco,
-                Quantidade = quantidade
+                Quantidade = quantidade,
+                Categoria = categoria
             };
         }
-        public void RegistrarProduto(string nome, double preco, int quantidade)
+        public void RegistrarProduto(string nome, double preco, int quantidade, Categoria categoria)
         {
-            Produto produto = CriarProduto(nome, preco, quantidade);
+            Produto produto = CriarProduto(nome, preco, quantidade, categoria);
             SalvarProduto(produto);
         }
 
@@ -53,11 +55,12 @@ namespace CadastroDeProdutos.Service
             return null;
         }
         // Atualizar produto
-        public void AtualizarProduto(Produto produto, string nome, double preco, int quantidade)
+        public void AtualizarProduto(Produto produto, string nome, double preco, int quantidade, Categoria categoria)
         {
             produto.Nome = nome;
             produto.Preco = preco;
             produto.Quantidade = quantidade;
+            produto.Categoria = categoria;
         }
         // Deletar Produto
         public void DeletarProduto(int id)

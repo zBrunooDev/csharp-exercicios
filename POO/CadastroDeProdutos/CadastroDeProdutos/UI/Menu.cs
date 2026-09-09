@@ -76,7 +76,7 @@ namespace CadastroDeProdutos.UI
             double preco = LerDouble("Digite o preço do Produto: R$ ");
             int quantidade = LerEntrada("Digite a quantidade do Produto: ");
 
-            produtoService.RegistrarProduto(nome, preco, quantidade);
+            produtoService.RegistrarProduto(nome, preco, quantidade, categoria);
 
             Console.WriteLine("Produto cadastrado!");
         }
@@ -112,11 +112,12 @@ namespace CadastroDeProdutos.UI
 
             Console.WriteLine();
 
+            Categoria categoria = LerEnum();
             string nome = LerNome("Digite o nome do Produto: ");
             double preco = LerDouble("Digite o preço do Produto: R$ ");
             int quantidade = LerEntrada("Digite a quantidade do Produto: ");
 
-            produtoService.AtualizarProduto(produto, nome, preco, quantidade);
+            produtoService.AtualizarProduto(produto, nome, preco, quantidade, categoria);
         }
         //Deletar produto
         void DeletarProduto()
