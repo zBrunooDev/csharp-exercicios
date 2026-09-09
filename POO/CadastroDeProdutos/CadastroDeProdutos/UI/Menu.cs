@@ -71,6 +71,15 @@ namespace CadastroDeProdutos.UI
 
         void CadastrarProduto()
         {
+            Console.WriteLine();
+
+            foreach (Categoria categorias in Enum.GetValues(typeof(Categoria)))
+            {
+                Console.WriteLine($" - {categorias}");
+            }
+
+            Console.WriteLine();
+
             Categoria categoria = LerEnum();
             string nome = LerNome("Digite o nome do Produto: ");
             double preco = LerDouble("Digite o preço do Produto: R$ ");
