@@ -26,5 +26,13 @@ namespace WorkerContracts
             Departament = departament;
         }
 
+        public void addContract(HourContract contract)
+        {
+            Contracts.Add(contract);
+        }
+        public void removeContract(HourContract contract)
+        {
+            Contracts.Remove(contract);
+        }
     }
 }
