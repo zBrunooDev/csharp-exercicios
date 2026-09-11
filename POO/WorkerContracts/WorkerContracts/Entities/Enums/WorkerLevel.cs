@@ -8,8 +8,8 @@ namespace WorkerContracts
 {
     enum WorkerLevel  : int
     {
-        JUNIOR = 0,
-        MID_LEVEL = 1,
-        SENIOR = 2,
+        Junior = 0,
+        MidLevelL = 1,
+        Senior = 2,
     }
 }
