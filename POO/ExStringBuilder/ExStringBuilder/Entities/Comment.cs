@@ -8,11 +8,14 @@ namespace ExStringBuilder
 {
     internal class Comment
     {
-        string Text { get; set; }
+        public string Text { get; set; }
 
         Comment() { }
 
-        Comment(string text) { Text = text; }
+        public Comment(string text) 
+        {
+            Text = text;
+        }
 
     }
 }
