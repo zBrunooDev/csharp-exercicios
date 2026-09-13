@@ -18,21 +18,22 @@ namespace CadastroDeProdutos.Service
         private int contId = 0;
 
         // Cadastrar Produto
-        public Produto CriarProduto(string nome, double preco, int quantidade, Categoria categoria)
+        public Produto CriarProduto(string nome, string descricao, double preco, int quantidade, Categoria categoria)
         {
             contId += 1;
             return new Produto()
             {
                 Id = contId,
                 Nome = nome,
+                Descricao = descricao,
                 Preco = preco,
                 Quantidade = quantidade,
                 Categoria = categoria
             };
         }
-        public void RegistrarProduto(string nome, double preco, int quantidade, Categoria categoria)
+        public void RegistrarProduto(string nome, string descricao, double preco, int quantidade, Categoria categoria)
         {
-            Produto produto = CriarProduto(nome, preco, quantidade, categoria);
+            Produto produto = CriarProduto(nome, descricao, preco, quantidade, categoria);
             SalvarProduto(produto);
         }
 
@@ -55,9 +56,10 @@ namespace CadastroDeProdutos.Service
             return null;
         }
         // Atualizar produto
-        public void AtualizarProduto(Produto produto, string nome, double preco, int quantidade, Categoria categoria)
+        public void AtualizarProduto(Produto produto, string nome, string descricao, double preco, int quantidade, Categoria categoria)
         {
             produto.Nome = nome;
+            produto.Descricao = descricao;
             produto.Preco = preco;
             produto.Quantidade = quantidade;
             produto.Categoria = categoria;
