@@ -18,5 +18,25 @@ namespace CadastroDeProdutos
         public DateTime DataCadastro { get; set; }
         public StatusProduto Status {  get; set; }
         public Categoria Categoria { get; set; }
+
+        public Produto() { }
+
+        public Produto(int id, string nome, string descricao, double preco, int quantidade, DateTime dataCadastro, StatusProduto status, Categoria categoria)
+        {
+            Id = id;
+            Nome = nome;
+            Descricao = descricao;
+            Preco = preco;
+            Quantidade = quantidade;
+            DataCadastro = dataCadastro;
+            Status = status;
+            Categoria = categoria;
+        }
+
+        public override string ToString()
+        {
+            return $"ID: {Id}, Nome: {Nome}, Descrição: {Descricao}, Preço: {Preco:F2}, Quantidade: {Quantidade}, Data de cadastro: {DataCadastro.ToString("dd/MM/yyyy - HH:mm")}";
+        }
+
     }
 }

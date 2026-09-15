@@ -101,7 +101,7 @@ namespace CadastroDeProdutos.UI
             }
             foreach(Produto produto in produtos)
             {
-                EscreverProduto(produto);
+                Console.WriteLine(produto);
             }
         }
         //Buscar por ID
@@ -109,7 +109,7 @@ namespace CadastroDeProdutos.UI
         {
             var produto = SelecionarPorId();
             if (produto == null )return;
-            EscreverProduto(produto);
+            Console.WriteLine(produto);
 
         }
         //Atualizar dados de algum produto
@@ -118,7 +118,7 @@ namespace CadastroDeProdutos.UI
             var produto = SelecionarPorId();
             if (produto == null )return;
 
-            EscreverProduto(produto);
+            Console.WriteLine(produto);
 
             Console.WriteLine();
 
@@ -136,7 +136,7 @@ namespace CadastroDeProdutos.UI
             var produto = SelecionarPorId();
             if (produto == null) return;
 
-            EscreverProduto(produto);
+            Console.WriteLine(produto);
 
             Console.WriteLine();
 
@@ -231,10 +231,6 @@ namespace CadastroDeProdutos.UI
                 return produto;
         }
 
-        void EscreverProduto(Produto produto)
-        {
-            Console.WriteLine($"ID: {produto.Id}, Nome: {produto.Nome}, Descrição: {produto.Descricao}, Preço: {produto.Preco:F2}, Quantidade: {produto.Quantidade}, Data de cadastro: {produto.DataCadastro.ToString("dd/MM/yyyy - HH:mm")}");
-        }
 
     }
 }
