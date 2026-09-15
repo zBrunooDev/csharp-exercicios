@@ -15,6 +15,7 @@ namespace CadastroDeProdutos
         public string Descricao { get; set; }
         public double Preco {  get; set; }
         public int Quantidade { get; set; }
+        public DateTime DataCadastro { get; set; }
         public StatusProduto Status {  get; set; }
         public Categoria Categoria { get; set; }
     }

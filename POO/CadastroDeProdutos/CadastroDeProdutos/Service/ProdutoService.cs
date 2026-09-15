@@ -28,7 +28,8 @@ namespace CadastroDeProdutos.Service
                 Descricao = descricao,
                 Preco = preco,
                 Quantidade = quantidade,
-                Categoria = categoria
+                Categoria = categoria,
+                DataCadastro = DateTime.Now,
             };
         }
         public void RegistrarProduto(string nome, string descricao, double preco, int quantidade, Categoria categoria)
@@ -63,6 +64,7 @@ namespace CadastroDeProdutos.Service
             produto.Preco = preco;
             produto.Quantidade = quantidade;
             produto.Categoria = categoria;
+            produto.DataCadastro = DateTime.Now;
         }
         // Deletar Produto
         public void DeletarProduto(int id)
