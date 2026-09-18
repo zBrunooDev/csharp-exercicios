@@ -22,7 +22,7 @@ namespace ImportedProduct.Entities
 
         public virtual string PriceTag()
         {
-            return $"{Name} R$ {Price}";
+            return $"{Name} R$ {Price:F2}";
         }
     }
 }

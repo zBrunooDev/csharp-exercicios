@@ -24,7 +24,7 @@ namespace ImportedProduct.Entities
 
         public override string PriceTag()
         {
-            return base.PriceTag() + $" Customs free"; 
+            return $"{Name} $ {TotalPrice():F2} Customs fee: $ {CustomsFee}"; 
         }
     }
 }
