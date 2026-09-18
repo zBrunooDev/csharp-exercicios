@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ImportedProduct.Entities
+namespace ExImportedProduct.Entities
 {
     internal class UsedProduct : Product
     {
