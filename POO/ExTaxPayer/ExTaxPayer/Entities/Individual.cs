@@ -20,11 +20,11 @@ namespace ExTaxPayer.Entities
         {
             if (IncomeAnnual < 20000.00)
             {
-                return (IncomeAnnual * 0.15) - (HealthSpending * 0.05);
+                return (IncomeAnnual * 0.15) - (HealthSpending * 0.5);
             }
             else
             {
-                return (IncomeAnnual * 0.25) - (HealthSpending * 0.05);
+                return (IncomeAnnual * 0.25) - (HealthSpending * 0.5);
             }
         }
     }

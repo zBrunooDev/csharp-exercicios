@@ -18,6 +18,11 @@ namespace ExTaxPayer.Entities
         }
 
         public abstract double TaxCalcultion();
+
+        public override string ToString()
+        {
+            return $"{Name}: ${TaxCalcultion():F2} ";
+        }
        
     }
 }
