@@ -10,6 +10,7 @@ namespace CadastroDeProdutos
 {
     internal class Produto
     {
+
         public int Id { get; set; }
         public string Nome { get; set; }
         public string Descricao { get; set; }
@@ -21,15 +22,14 @@ namespace CadastroDeProdutos
 
         public Produto() { }
 
-        public Produto(int id, string nome, string descricao, double preco, int quantidade, DateTime dataCadastro, StatusProduto status, Categoria categoria)
+        public Produto(string nome, string descricao, double preco, int quantidade, DateTime dataCadastro, Categoria categoria)
         {
-            Id = id;
             Nome = nome;
             Descricao = descricao;
             Preco = preco;
             Quantidade = quantidade;
             DataCadastro = dataCadastro;
-            Status = status;
+            //Status = status;
             Categoria = categoria;
         }
 

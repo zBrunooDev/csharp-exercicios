@@ -86,7 +86,9 @@ namespace CadastroDeProdutos.UI
             double preco = LerDouble("Digite o preço do Produto: R$ ");
             int quantidade = LerEntrada("Digite a quantidade do Produto: ");
 
-            produtoService.RegistrarProduto(nome, descricao, preco, quantidade, categoria);
+            Produto produto = new Produto(nome, descricao, preco, quantidade, DateTime.Now, categoria);
+
+            produtoService.RegistrarProduto(produto);
 
             Console.WriteLine("Produto cadastrado!");
         }
