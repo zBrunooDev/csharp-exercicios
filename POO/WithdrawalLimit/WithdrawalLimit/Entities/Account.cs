@@ -14,21 +14,29 @@ namespace WithdrawalLimit.Entities
         public double Balance { get; set; }
         public double WithdrawLimit { get; set; }
 
-        public Account (int number, string holder, double balance, double withdrawLimit)
+        public Account (int number, string holder, double withdrawLimit)
         {
             Number = number;
             Holder = holder;
-            Balance = balance;
+            Balance = 0;
             WithdrawLimit = withdrawLimit;
         }
 
         public void Deposit(double amount)
         {
-            Balance =+ amount;
+            Balance += amount;
         }
         public void Withdraw(double amount)
         {
-            Balance = +amount;
+            if(amount > WithdrawLimit)
+            {
+                throw new Exception("The ammount exceeds withdraw limit.");
+            }
+            if (amount > Balance)
+            {
+                throw new Exception("Not enought balance");
+            }
+            Balance -= amount;
         }
     }
 }
