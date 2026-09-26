@@ -35,7 +35,9 @@ namespace CadastroDeProdutos
 
         public override string ToString()
         {
-            return $"ID: {Id}, Nome: {Nome}, Descrição: {Descricao}, Preço: {Preco:F2}, Quantidade: {Quantidade}, Data de cadastro: {DataCadastro.ToString("dd/MM/yyyy - HH:mm")}";
+            Console.WriteLine();
+            return $"ID: {Id},\nNome: {Nome},\nDescrição: {Descricao},\nPreço: {Preco:F2},\nQuantidade: {Quantidade},\nData de cadastro: {DataCadastro.ToString("dd/MM/yyyy - HH:mm")}";
+            Console.WriteLine();
         }
 
     }
