@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ContractsPayment.Entities
 {
-    internal class Installmensts
+    public class Installmensts
     {
         public DateTime DueDate { get; set; }
         public double Amount { get; set; }

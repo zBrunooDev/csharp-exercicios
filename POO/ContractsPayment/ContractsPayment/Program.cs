@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ContractsPayment.Entities;
 
 namespace ContractsPayment
 {
@@ -19,6 +20,8 @@ namespace ContractsPayment
             double totalValue = double.Parse(Console.ReadLine());
 
             // I needed to finish the other classes to continue implementing them in Program.
+
+            // testi
 
         }
     }

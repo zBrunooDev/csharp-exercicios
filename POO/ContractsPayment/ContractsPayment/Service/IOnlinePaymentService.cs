@@ -10,6 +10,5 @@ namespace ContractsPayment.Service
     {
         double PaymentFee (double amount);
         double Interest(double amount, int months);
-
     }
 }
