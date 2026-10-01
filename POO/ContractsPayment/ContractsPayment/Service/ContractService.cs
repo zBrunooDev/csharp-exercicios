@@ -22,21 +22,21 @@ namespace ContractsPayment.Service
 
             double valuePerIntallments = contract.TotalValue / months;
 
-            for (int i = 0; i < months; i++)
+            for (int i = 1; i <= months; i++)
             {
                 // Processing the payment date
                 DateTime dueDate = contract.Date.AddMonths(i);
 
                 // Processing the tax payment
                 double amount = valuePerIntallments + _onlinePaymentService.Interest(valuePerIntallments, i);
-                valuePerIntallments += _onlinePaymentService.PaymentFee(amount);
+                amount += _onlinePaymentService.PaymentFee(amount);
 
                 // Create an installment with correct information
-                Installment installment = new Installment(dueDate, valuePerIntallments);
+                Installment installment = new Installment(dueDate, amount);
 
 
                 // Adding an installment to the installments list
-                contract.Installmensts.Add(installment);
+                contract.AddInstallments(installment);
 
             }
 

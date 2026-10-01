@@ -17,5 +17,9 @@ namespace ContractsPayment.Entities
             Amount = amount;
         }
 
+        public override string ToString()
+        {
+            return $"{DueDate.ToString("dd/MM/yyyy")} - {Amount:F2}";
+        }
     }
 }

@@ -11,7 +11,7 @@ namespace ContractsPayment.Entities
         public int Number { get; set; }
         public DateTime Date { get; set; }
         public double TotalValue { get; set; }
-        public List<Installment> Installmensts { get; set; }
+        public List<Installment> Installments { get; set; } = new List<Installment>();
 
         public Contract(int number, DateTime date, double totalvalue)
         {
@@ -22,13 +22,14 @@ namespace ContractsPayment.Entities
         // Add installments to the list
         public void AddInstallments(Installment installmensts)
         {
-            Installmensts.Add(installmensts);
+            Installments.Add(installmensts);
         }
         // Remove installments from the list
         public void RemoveInstallments(Installment installmensts)
         {
-            Installmensts.Remove(installmensts);
+            Installments.Remove(installmensts);
         }
+
 
     }
 }

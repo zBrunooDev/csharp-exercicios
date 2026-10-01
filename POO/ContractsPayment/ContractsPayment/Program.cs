@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ContractsPayment.Entities;
+using ContractsPayment.Service;
 
 namespace ContractsPayment
 {
@@ -19,6 +20,18 @@ namespace ContractsPayment
             Console.Write("Contract value: ");
             double totalValue = double.Parse(Console.ReadLine());
 
+            Contract contract = new Contract(number, date, totalValue);
+
+            Console.Write("Enter number of installments: ");
+            int intallment = int.Parse(Console.ReadLine());
+
+            ContractService contractService = new ContractService(new PaypalService());
+            contractService.ProcessContract(contract, intallment);
+
+            foreach (Installment installment in contract.Installments)
+            {
+                Console.WriteLine($"{installment}");
+            }
         }
     }
 }
