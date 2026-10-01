@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace ContractsPayment.Entities
 {
-    public class Installmensts
+    public class Installment
     {
         public DateTime DueDate { get; set; }
         public double Amount { get; set; }
 
-        public Installmensts(DateTime dueDate, double amount)
+        public Installment(DateTime dueDate, double amount)
         {
             DueDate = dueDate;
             Amount = amount;

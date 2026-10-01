@@ -19,10 +19,6 @@ namespace ContractsPayment
             Console.Write("Contract value: ");
             double totalValue = double.Parse(Console.ReadLine());
 
-            // I needed to finish the other classes to continue implementing them in Program.
-
-            // testi
-
         }
     }
 }
