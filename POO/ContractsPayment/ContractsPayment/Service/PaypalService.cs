@@ -8,13 +8,17 @@ namespace ContractsPayment.Service
 {
     internal class PaypalService : IOnlinePaymentService
     {
+        //Regarding my implementation, the professor uses a private constant variable to receive the percentage value.
+        private const double FeePercentage = 0.02;
+        private const double MonthlyInterest = 0.01;
+
         public double PaymentFee(double amount)
         {
-            return amount * 0.02;
+            return amount * FeePercentage;
         }
         public double Interest(double amount, int months)
         {
-            return amount * 0.01 * months;
+            return amount * MonthlyInterest * months;
         }
     }
 }
