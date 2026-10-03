@@ -11,43 +11,27 @@ namespace BestTimeToBuyAndSellStock
     {
         public int MaxProfit(int[] prices)
         {
+            int minPrice = prices[0];
+            int maxProfit = 0;
 
-            int menorIndice = 0;
-            int maiorIndice = 0;
-
-            for (int i = 0; i <= prices.Length; i++)
+            for (int i = 1; i < prices.Length; i++)
             {
-                if (prices[i] < prices[menorIndice])
+                if (prices[i] < minPrice)
                 {
-                    menorIndice = i;
+                    minPrice = prices[i];
                 }
-
-            }
-
-            int menorValor = prices[menorIndice];
-
-            for (int i = menorIndice; i <= prices.Length; i++)
-            {
-                if (prices[i] < prices[maiorIndice])
+                else
                 {
-                    maiorIndice = i;
+                    int lucroAtual = prices[i] - minPrice;
+
+                    if (lucroAtual > maxProfit)
+                    {
+                        maxProfit = lucroAtual;
+                    }
                 }
             }
-            int maiorValor = prices[maiorIndice];
 
-            int lucro = menorValor - maiorValor;
-
-            if (lucro <= 0)
-            {
-                return 0;
-            }
-            else
-            {
-                return lucro;
-            }
-
-            // First attempt completed. The current logic needs improvement to correctly handle the order between buying and selling.
-
+            return maxProfit;
         }
     }
 }
