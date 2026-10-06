@@ -43,6 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\Course.cs" />
+    <Compile Include="Entities\Enrollment.cs" />
+    <Compile Include="Entities\Enums\EnrollmentStatus.cs" />
+    <Compile Include="Entities\Student.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
