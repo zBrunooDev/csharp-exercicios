@@ -12,13 +12,11 @@ namespace EnrollmentStudant.Entities
         public string Name { get; set; }
         public DateTime BirthDate { get; set; }
         public List<Enrollment> Enrollments { get; set; }
-        public EnrollmentStatus EnrolmentStatus { get; set; }
 
-        public Student(string name, DateTime birthDate, EnrollmentStatus enrolmentStatus)
+        public Student(string name, DateTime birthDate)
         {
             Name = name;
             BirthDate = birthDate;
-            EnrolmentStatus = enrolmentStatus;
             Enrollments = new List<Enrollment>();
         }
 
