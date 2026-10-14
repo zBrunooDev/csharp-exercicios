@@ -37,7 +37,7 @@ namespace CadastroDeProdutos
         {
             Console.WriteLine();
             return $"ID: {Id},\nNome: {Nome},\nDescrição: {Descricao},\nPreço: {Preco:F2},\nQuantidade: {Quantidade},\nData de cadastro: {DataCadastro.ToString("dd/MM/yyyy - HH:mm")}";
-            Console.WriteLine();
+            Console.WriteLine();    
         }
 
     }

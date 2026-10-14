@@ -30,9 +30,9 @@ namespace CadastroDeProdutos.Service
             produtos.Add(produto);
         }
         // Listar Produto
-        public List<Produto> PegarTodos()
+        public IReadOnlyList<Produto> PegarTodos()
         {
-            return produtos;
+            return produtos.AsReadOnly();
         }
         // Buscar por ID
         public Produto PegarProduto(int id)
