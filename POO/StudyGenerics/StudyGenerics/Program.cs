@@ -11,18 +11,17 @@ namespace StudyGenerics
         static void Main(string[] args)
         {
 
-            // O problema relacionado à reutilização de código é que, se quisermos imprimir valores de tipos diferentes, como int e string, precisaríamos reescrever o método para cada tipo
+            // Here we instantiate the class with the type we want to use.
+            // If we need another type, we just change the type during instantiation.
 
-            // Utilizar object não resolve completamente o problema, pois pode exigir conversões de tipo e permitir erros em tempo de execução. Além disso, pode prejudicar o desempenho em alguns cenários.
-
-            PrintService printService = new PrintService();
+            PrintService<string> printService = new PrintService<string>();
 
             Console.WriteLine("How many values?");
             int n = int.Parse(Console.ReadLine());
 
             for(int i = 0; i < n; i++)
             {
-                int x = int.Parse(Console.ReadLine());
+                string x = Console.ReadLine();
                 printService.AddValue(x);
             }
 

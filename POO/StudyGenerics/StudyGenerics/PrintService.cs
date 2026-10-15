@@ -8,13 +8,13 @@ using System.Threading.Tasks;
 
 namespace StudyGenerics
 {
-    internal class PrintService
+    internal class PrintService<T> 
     {
 
-        private int[] _values = new int [10];
+        private T[] _values = new T [10];
         private int _count = 0;
 
-        public void AddValue(int value)
+        public void AddValue(T value)
         {
             if (_count == 10)
             {
@@ -24,7 +24,7 @@ namespace StudyGenerics
             _count++;
         }
 
-        public int First()
+        public T First()
         {
             if (_count == 0)
             {
@@ -33,7 +33,7 @@ namespace StudyGenerics
             return _values[0];
         }
 
-        public  void Print()
+        public void Print()
         {
             Console.Write("[");
             for(int i = 0; i < _count - 1; i++)
