@@ -21,16 +21,12 @@ namespace Ex1168
                 string value = Console.ReadLine();
                 for(int j = 0; j < value.Length; j++)
                 {
-                    for (int k = 0; k < leds.Length; k++)
-                    {
-                        if((int)value[j] == k)
-                        {
-                            count += leds[k];
-                        }
-                      
-                    }
+                    int digit = int.Parse(value[j].ToString());
+
+                    count += leds[digit];
+
                 }
-                Console.WriteLine(count);
+                Console.WriteLine(count + " leds");
             }
         }
     }
