@@ -20,8 +20,7 @@ namespace CadastroDeProdutos.Service
         // Criar produto - Tirar daqui.
         public void RegistrarProduto(Produto produto)
         {
-            contId += 1;
-            produto.Id = contId;
+            produto.Id = ++contId;
             SalvarProduto(produto);
         }
 
