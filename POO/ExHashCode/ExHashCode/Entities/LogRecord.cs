@@ -7,18 +7,18 @@ using System.Threading.Tasks;
 
 namespace ExHashCode.Entities
 {
-    internal class LogReader
+    internal class LogRecord
     {
         public string Name { get; set; }
         public DateTime Instant { get; set; }
 
         public override bool Equals(object obj)
         {
-            if(!(obj is LogReader))
+            if(!(obj is LogRecord))
             {
                 throw new ArgumentException("The object does not match the expected type.");
             }
-            LogReader other = obj as LogReader;
+            LogRecord other = obj as LogRecord;
             return other.Name.Equals(Name);
         }
 
