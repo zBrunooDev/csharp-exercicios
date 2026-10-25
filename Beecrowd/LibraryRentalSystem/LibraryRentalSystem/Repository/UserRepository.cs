@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,14 +7,13 @@ using LibraryRentalSystem.Entities;
 
 namespace LibraryRentalSystem.Repository
 {
-    internal class Library
+    internal class UserRepository
     {
-        public SortedSet<Book> Books { get; set; } = new SortedSet<Book>();
+        public SortedSet<User> UsersList { get; set; } = new SortedSet<User>();
 
-        public void AddBook(Book book)
+        public void AddUser(User user)
         {
-            Books.Add(book);
+            UsersList.Add(user);
         }
-
     }
 }

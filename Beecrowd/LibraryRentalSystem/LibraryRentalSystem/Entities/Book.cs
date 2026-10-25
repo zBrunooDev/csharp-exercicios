@@ -19,5 +19,19 @@ namespace LibraryRentalSystem.Entities
             Title = title;
             Author = author;
         }
+
+        public override int GetHashCode()
+        {
+            return BookKey.GetHashCode();
+        }
+        public override bool Equals(object obj)
+        {
+            if(!(obj is Book))
+            {
+                throw new ArgumentException("It does not correspond to the correct object type.");
+            }
+            Book other = obj as Book;
+            return other.Equals(this);
+        }
     }
 }
