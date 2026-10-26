@@ -17,6 +17,9 @@ namespace LibraryRentalSystem
 
             menu.Start();
 
+            // Ainda preciso validar se a opeção de adicionar no reposytory está correta
+            // e tambem mudar a escrita totalmente para o inglês.
+
         }
     }
 }
