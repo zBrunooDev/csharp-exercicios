@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LibraryRentalSystem.Entities
 {
-    internal class Book
+    internal class Book : IComparable
     {
         public string BookKey { get; private set; }
         public string Title { get; private set; }
@@ -31,7 +31,17 @@ namespace LibraryRentalSystem.Entities
                 throw new ArgumentException("It does not correspond to the correct object type.");
             }
             Book other = obj as Book;
-            return other.Equals(this);
+            return BookKey == other.BookKey;
+        }
+
+        public int CompareTo(object obj)
+        {
+            if(!(obj is Book))
+            {
+                throw new ArgumentException("It does not correspond to the correct object type.");
+            }
+            Book other = obj as Book;
+            return BookKey.CompareTo(other.BookKey);
         }
     }
 }

@@ -12,11 +12,6 @@ namespace LibraryRentalSystem.Service
     {
 
         private readonly BookRepository _bookRepository;
-
-        public BookService()
-        {
-        }
-
         public BookService(BookRepository bookRepository)
         {
             _bookRepository = bookRepository;
@@ -26,18 +21,11 @@ namespace LibraryRentalSystem.Service
         {
             var actualList = _bookRepository.GetAll();
 
-            if (actualList.Contains(book))
+            if(actualList.Contains(book))
             {
                 throw new Exception("This book is already registered.");
             }
-            else
-            {
-                _bookRepository.AddBook(book);
-            }
-
+            _bookRepository.AddBook(book);
         }
-
-
-
     }
 }
