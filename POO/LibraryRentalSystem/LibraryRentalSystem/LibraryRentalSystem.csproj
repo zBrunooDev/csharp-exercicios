@@ -52,6 +52,7 @@
     <Compile Include="Repository\BookRepository.cs" />
     <Compile Include="Repository\UserRepository.cs" />
     <Compile Include="Service\BookService.cs" />
+    <Compile Include="Service\UserService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

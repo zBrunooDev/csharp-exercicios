@@ -6,16 +6,27 @@ using System.Threading.Tasks;
 
 namespace LibraryRentalSystem.Entities
 {
-    internal class User
+    internal class User : IComparable
     {
         public int Id { get; private set; }
         public string Name { get; private set; }
+        private static int _contId = 1;
 
-        public User(int id, string name)
+        public User(string name)
         {
-            Id = id;
             Name = name;
+            Id = _contId;
+            _contId++;
         }
 
+        public int CompareTo(object obj)
+        {
+            if (!(obj is User))
+            {
+                throw new ArgumentException("It does not correspond to the correct object type.");
+            }
+            User other = obj as User;
+            return Id.CompareTo(other.Id);
+        }
     }
 }

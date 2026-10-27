@@ -15,10 +15,14 @@ namespace LibraryRentalSystem
 
         private BookRepository _bookRepository;
         private BookService _bookService;
+        private UserRepository _userRepository;
+        private UserService _userService;
         public void Start()
         {
             _bookRepository = new BookRepository();
             _bookService = new BookService(_bookRepository);
+            _userRepository = new UserRepository();
+            _userService = new UserService(_userRepository);
 
             while (true)
             {
@@ -30,18 +34,20 @@ namespace LibraryRentalSystem
                         BookRegistration();
                         continue;
                     case 2:
+                        UserRegister();
                         break;
                 }
             }
         }
         public void Display()
         {
-            Console.WriteLine("Menu");
-            Console.WriteLine("Escolha as opções: ");
-            Console.WriteLine("(1) Cadastrar Livro: ");
-            Console.WriteLine("(2) Consultar Livros disponiveis: ");
-            Console.WriteLine("(3) Conultar Livros emprestados: ");
-            Console.WriteLine("(4) Devolver Livro: ");
+            Console.WriteLine("------------Menu------------\n");
+            Console.WriteLine("Escolha as opções");
+            Console.WriteLine("(1) Cadastrar Livro");
+            Console.WriteLine("(2) Cadastrar usuário");
+            Console.WriteLine("() Consultar Livros disponiveis");
+            Console.WriteLine("() Conultar Livros emprestados");
+            Console.WriteLine("() Devolver Livro");
 
             Console.WriteLine();
 
@@ -80,5 +86,20 @@ namespace LibraryRentalSystem
                 Console.WriteLine($"{e.Message}");
             }
         }
+
+        void UserRegister()
+        {
+            Console.Write("Digite seu nome de usuário: ");
+            string name = Console.ReadLine();
+            User user = new User(name);
+            _userService.RegisterUser(user);
+        }
+
+        void ViewAvailables()
+        {
+
+        }
+
+
     }
 }

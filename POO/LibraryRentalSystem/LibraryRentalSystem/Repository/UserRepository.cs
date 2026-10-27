@@ -9,11 +9,11 @@ namespace LibraryRentalSystem.Repository
 {
     internal class UserRepository
     {
-        public SortedSet<User> UsersList { get; set; } = new SortedSet<User>();
+        public SortedSet<User> UsersCollection { get; set; } = new SortedSet<User>();
 
         public void AddUser(User user)
         {
-            UsersList.Add(user);
+            UsersCollection.Add(user);
         }
     }
 }

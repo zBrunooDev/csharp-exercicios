@@ -27,5 +27,8 @@ namespace LibraryRentalSystem.Service
             }
             _bookRepository.AddBook(book);
         }
+
+        // Output books.
+
     }
 }
