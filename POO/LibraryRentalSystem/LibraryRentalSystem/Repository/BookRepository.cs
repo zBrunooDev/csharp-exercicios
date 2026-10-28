@@ -21,6 +21,5 @@ namespace LibraryRentalSystem.Repository
         {
             return Books;
         }
-
     }
 }

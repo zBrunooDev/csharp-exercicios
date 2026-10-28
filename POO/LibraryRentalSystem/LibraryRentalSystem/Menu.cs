@@ -35,6 +35,9 @@ namespace LibraryRentalSystem
                         continue;
                     case 2:
                         UserRegister();
+                        continue;
+                    case 3:
+                        ViewAvailables();
                         break;
                 }
             }
@@ -45,7 +48,7 @@ namespace LibraryRentalSystem
             Console.WriteLine("Escolha as opções");
             Console.WriteLine("(1) Cadastrar Livro");
             Console.WriteLine("(2) Cadastrar usuário");
-            Console.WriteLine("() Consultar Livros disponiveis");
+            Console.WriteLine("(3) Consultar Livros Livros");
             Console.WriteLine("() Conultar Livros emprestados");
             Console.WriteLine("() Devolver Livro");
 
@@ -105,9 +108,18 @@ namespace LibraryRentalSystem
 
         void ViewAvailables()
         {
-
+            try
+            {
+                var actuaList = _bookService.AllBooks();
+                foreach (var item in actuaList)
+                {
+                    Console.WriteLine(item);
+                }
+            }
+            catch( Exception e ) 
+            {
+                Console.WriteLine($"{e.Message}");
+            }        
         }
-
-
     }
 }

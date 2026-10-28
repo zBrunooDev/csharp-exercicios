@@ -21,7 +21,8 @@ namespace LibraryRentalSystem.Service
         {
             var actualList = _bookRepository.GetAll();
 
-            if(actualList.Contains(book))
+            if (actualList.Any(existingBook =>
+                    existingBook.BookKey == book.BookKey))
             {
                 throw new Exception("This book is already registered.");
             }
@@ -29,6 +30,16 @@ namespace LibraryRentalSystem.Service
         }
 
         // Output books.
+
+        public SortedSet<Book> AllBooks()
+        {
+            var actualList = _bookRepository.GetAll();
+            if(actualList.Count == 0)
+            {
+                throw new Exception("A list is empty!");
+            }
+            return actualList;
+        }
 
     }
 }
