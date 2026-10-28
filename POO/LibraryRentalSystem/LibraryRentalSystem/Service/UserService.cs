@@ -22,10 +22,11 @@ namespace LibraryRentalSystem.Service
 
         public void RegisterUser(User user)
         {
-            
+            if (string.IsNullOrEmpty(user.Name))
+            {
+                throw new ArgumentNullException("The field cannot be null or empty!");
+            }
             _userRepository.AddUser(user);
         }
-
-
     }
 }

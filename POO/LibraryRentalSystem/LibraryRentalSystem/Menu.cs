@@ -89,10 +89,18 @@ namespace LibraryRentalSystem
 
         void UserRegister()
         {
-            Console.Write("Digite seu nome de usuário: ");
-            string name = Console.ReadLine();
-            User user = new User(name);
-            _userService.RegisterUser(user);
+            try 
+            {
+                Console.Write("Digite seu nome de usuário: ");
+                string name = Console.ReadLine();
+                User user = new User(name);
+                _userService.RegisterUser(user);
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine($"{e.Message}");
+            }
+            
         }
 
         void ViewAvailables()
