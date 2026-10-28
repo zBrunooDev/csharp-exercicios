@@ -36,12 +36,19 @@ namespace LibraryRentalSystem.Entities
 
         public int CompareTo(object obj)
         {
-            if(!(obj is Book))
-            {
-                throw new ArgumentException("It does not correspond to the correct object type.");
-            }
-            Book other = obj as Book;
+            if (!(obj is  Book other))
+                throw new ArgumentException("Invalid object type.");
+
+            int titleComparsion = Title.CompareTo(other.Title);
+            if(titleComparsion != 0)
+                return titleComparsion; 
+
             return BookKey.CompareTo(other.BookKey);
+        }
+
+        public override string ToString()
+        {
+            return $"Code: {BookKey}, Title: {Title}, Author: {Author}";
         }
     }
 }
