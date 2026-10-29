@@ -50,6 +50,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\BookRepository.cs" />
+    <Compile Include="Repository\LoanBookRepository.cs" />
     <Compile Include="Repository\UserRepository.cs" />
     <Compile Include="Service\BookService.cs" />
     <Compile Include="Service\UserService.cs" />

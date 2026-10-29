@@ -8,6 +8,7 @@ namespace LibraryRentalSystem.Entities
 {
     internal class LoanBook
     {
+        public int LoanBookId { get; set; }
         public Book Book { get; set; }
         public User User { get; set; }
         public DateTime LoanDate { get; set; }
