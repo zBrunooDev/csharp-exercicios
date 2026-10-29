@@ -48,8 +48,8 @@ namespace LibraryRentalSystem
             Console.WriteLine("Escolha as opções");
             Console.WriteLine("(1) Cadastrar Livro");
             Console.WriteLine("(2) Cadastrar usuário");
-            Console.WriteLine("(3) Consultar Livros Livros");
-            Console.WriteLine("() Conultar Livros emprestados");
+            Console.WriteLine("(3) Consultar Livros");
+            Console.WriteLine("() Consultar Livros emprestados");
             Console.WriteLine("() Devolver Livro");
 
             Console.WriteLine();

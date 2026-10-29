@@ -20,6 +20,7 @@ namespace LibraryRentalSystem.Entities
             Author = author;
         }
 
+        /*
         public override int GetHashCode()
         {
             return BookKey.GetHashCode();
@@ -33,6 +34,7 @@ namespace LibraryRentalSystem.Entities
             Book other = obj as Book;
             return BookKey == other.BookKey;
         }
+        */
 
         public int CompareTo(object obj)
         {
