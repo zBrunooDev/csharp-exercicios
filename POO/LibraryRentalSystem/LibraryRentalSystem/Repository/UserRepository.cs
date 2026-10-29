@@ -15,5 +15,10 @@ namespace LibraryRentalSystem.Repository
         {
             UsersCollection.Add(user);
         }
+
+        public SortedSet<User> GetAllUser()
+        {
+            return UsersCollection;
+        }
     }
 }

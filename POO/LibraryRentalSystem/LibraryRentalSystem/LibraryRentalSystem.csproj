@@ -53,6 +53,7 @@
     <Compile Include="Repository\LoanBookRepository.cs" />
     <Compile Include="Repository\UserRepository.cs" />
     <Compile Include="Service\BookService.cs" />
+    <Compile Include="Service\LoanBookService.cs" />
     <Compile Include="Service\UserService.cs" />
   </ItemGroup>
   <ItemGroup>
