@@ -30,14 +30,19 @@ namespace LibraryRentalSystem.Service
         // User validation
         void ValidateUser(User user)
         {
-            var actualListUser = _userRepository.GetAllUser();
 
+            if (user == null)
+            {
+                throw new ArgumentNullException(nameof(user));
+            }
+
+            var actualListUser = _userRepository.GetAllUser();
 
             if (actualListUser == null || !actualListUser.Any())
             {
-                throw new Exception("The list is empty.");
+                throw new ArgumentNullException("The list is empty.");
             }
-            else if(!(actualListUser.Contains(user)))
+            if(!(actualListUser.Contains(user)))
             {
                 throw new Exception("The user is not registered.");
             }
