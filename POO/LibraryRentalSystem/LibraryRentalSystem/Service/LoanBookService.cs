@@ -13,18 +13,28 @@ namespace LibraryRentalSystem.Service
         private readonly UserRepository _userRepository;
         private readonly BookRepository _bookRepository;
 
-        public LoanBookService(UserRepository userRepository, BookRepository bookRepository)
+        private readonly LoanBookRepository _loanBookRepository;
+
+        public LoanBookService(UserRepository userRepository, BookRepository bookRepository, LoanBookRepository loanBookRepository)
         {
             _userRepository = userRepository;
             _bookRepository = bookRepository;
+            _loanBookRepository = loanBookRepository;
         }
 
        
-        public void Loan(User user, Book bookKey)
+        public void Loan(User user, Book book)
         {
 
             ValidateUser(user);
+            ValidateBook(book);
+            CheckAvailability(book);
 
+            LoanBook loanBook = new LoanBook(user, book, DateTime.Now);
+
+            // Register loan
+
+            _loanBookRepository.AddLoanBook(loanBook.LoanBookId, loanBook);
         }
 
         // User validation
@@ -40,7 +50,7 @@ namespace LibraryRentalSystem.Service
 
             if (actualListUser == null || !actualListUser.Any())
             {
-                throw new ArgumentNullException("The list is empty.");
+                throw new InvalidOperationException("The user list is empty.");
             }
             if(!(actualListUser.Contains(user)))
             {
@@ -50,7 +60,42 @@ namespace LibraryRentalSystem.Service
         }
 
         // Book validation
+        void ValidateBook(Book book)
+        {
+
+            if (book == null)
+            {
+                throw new ArgumentNullException(nameof(book));
+            }
+
+            var actualListBook = _bookRepository.GetAll();
+
+            if (actualListBook == null || !actualListBook.Any())
+            {
+                throw new InvalidOperationException("The book list is empty.");
+            }
+            if (!(actualListBook.Contains(book)))
+            {
+                throw new Exception("The book is not registered.");
+            }
+
+        }
+
         // Check availability
-        // Register loan
+
+        public void CheckAvailability(Book book)
+        {
+            var borrowedBooks = _loanBookRepository.GetAllLoanBooks();
+
+            if (borrowedBooks == null)
+            {
+                throw new Exception("The loan list is null.");
+            }
+
+            if (borrowedBooks.Any(loan => loan.Value.Book.BookKey == book.BookKey && loan.Value.ReturnDate == null))
+            {
+                throw new Exception("The book is already on loan.");
+            }
+        }     
     }
 }

@@ -16,5 +16,10 @@ namespace LibraryRentalSystem.Repository
             LoanBookCollection.Add(loanKey, loanBook);
         }
 
+        public Dictionary<int, LoanBook> GetAllLoanBooks()
+        {
+            return LoanBookCollection;
+        }
+
     }
 }
