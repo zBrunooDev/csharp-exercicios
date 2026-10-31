@@ -20,6 +20,5 @@ namespace LibraryRentalSystem.Repository
         {
             return LoanBookCollection;
         }
-
     }
 }

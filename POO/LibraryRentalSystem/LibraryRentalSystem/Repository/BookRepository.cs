@@ -21,5 +21,15 @@ namespace LibraryRentalSystem.Repository
         {
             return Books;
         }
+
+        // Get By ID books
+        public Book GetBookById(string BookKey)
+        {
+            foreach (Book book in Books)
+            {
+                if(book.BookKey == BookKey) return book;
+            }
+            return null;
+        }
     }
 }

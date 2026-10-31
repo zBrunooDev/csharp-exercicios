@@ -17,12 +17,19 @@ namespace LibraryRentalSystem
         private BookService _bookService;
         private UserRepository _userRepository;
         private UserService _userService;
+        private LoanBookRepository _loanBookRepository;
+        private LoanBookService _loanBookService;
+
         public void Start()
         {
             _bookRepository = new BookRepository();
             _bookService = new BookService(_bookRepository);
+
             _userRepository = new UserRepository();
             _userService = new UserService(_userRepository);
+
+            _loanBookRepository = new LoanBookRepository();
+            _loanBookService = new LoanBookService(_userRepository, _bookRepository, _loanBookRepository);
 
             while (true)
             {
@@ -39,6 +46,9 @@ namespace LibraryRentalSystem
                     case 3:
                         ViewAvailables();
                         break;
+                    case 4:
+                        LoanBookRegister();
+                        break;
                 }
             }
         }
@@ -49,7 +59,7 @@ namespace LibraryRentalSystem
             Console.WriteLine("(1) Cadastrar Livro");
             Console.WriteLine("(2) Cadastrar usuário");
             Console.WriteLine("(3) Consultar Livros");
-            Console.WriteLine("() Consultar Livros emprestados");
+            Console.WriteLine("(4) Pegar um livro emprestado. ");
             Console.WriteLine("() Devolver Livro");
 
             Console.WriteLine();
@@ -120,6 +130,23 @@ namespace LibraryRentalSystem
             {
                 Console.WriteLine($"{e.Message}");
             }        
+        }
+
+        void LoanBookRegister()
+        {
+            try
+            {
+                Console.Write("Digite o ID do usuário: ");
+                int user = int.Parse(Console.ReadLine());
+                Console.Write("Digite o codigo do livro: ");
+                string bookKey = Console.ReadLine();
+
+                _loanBookService.Loan(user, bookKey);
+            }
+            catch(Exception e)
+            { 
+                Console.WriteLine(e);
+            }
         }
     }
 }

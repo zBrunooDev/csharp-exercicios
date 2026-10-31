@@ -20,5 +20,16 @@ namespace LibraryRentalSystem.Repository
         {
             return UsersCollection;
         }
+
+        // Get user by ID
+
+        public User GetUserById(int id)
+        {
+            foreach(var user in UsersCollection)
+            {
+                if(user.Id == id) return user;
+            }
+            return null;
+        }
     }
 }

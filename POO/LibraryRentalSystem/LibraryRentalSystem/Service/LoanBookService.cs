@@ -23,8 +23,10 @@ namespace LibraryRentalSystem.Service
         }
 
        
-        public void Loan(User user, Book book)
+        public void Loan(int userId, string bookKey)
         {
+            User user = _userRepository.GetUserById(userId);
+            Book book = _bookRepository.GetBookById(bookKey);
 
             ValidateUser(user);
             ValidateBook(book);
