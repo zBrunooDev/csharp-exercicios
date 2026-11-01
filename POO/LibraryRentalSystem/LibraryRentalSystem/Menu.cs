@@ -45,10 +45,13 @@ namespace LibraryRentalSystem
                         continue;
                     case 3:
                         ViewAvailables();
-                        break;
+                        continue;
                     case 4:
                         LoanBookRegister();
-                        break;
+                        continue;
+                    case 5:
+                        LoanBookReturn();
+                        continue;
                 }
             }
         }
@@ -60,7 +63,7 @@ namespace LibraryRentalSystem
             Console.WriteLine("(2) Cadastrar usuário");
             Console.WriteLine("(3) Consultar Livros");
             Console.WriteLine("(4) Pegar um livro emprestado. ");
-            Console.WriteLine("() Devolver Livro");
+            Console.WriteLine("(5) Devolver Livro");
 
             Console.WriteLine();
 
@@ -148,5 +151,24 @@ namespace LibraryRentalSystem
                 Console.WriteLine(e);
             }
         }
+
+        void LoanBookReturn()
+        {
+            try
+            {
+                Console.Write("Digite o ID do usuário: ");
+                int user = int.Parse(Console.ReadLine());
+                Console.Write("Digite o codigo do livro: ");
+                string bookKey = Console.ReadLine();
+
+                _loanBookService.ReturnLoanBook(user, bookKey);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+        }
+
+
     }
 }

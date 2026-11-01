@@ -39,6 +39,31 @@ namespace LibraryRentalSystem.Service
             _loanBookRepository.AddLoanBook(loanBook.LoanBookId, loanBook);
         }
 
+        public void ReturnLoanBook(int userId, string bookKey)
+        {
+            // TODO: Identify the correct active loan using UserId and BookKey.
+
+            User user = _userRepository.GetUserById(userId);
+            Book book = _bookRepository.GetBookById(bookKey);
+
+            var actualListLoan = _loanBookRepository.GetAllLoanBooks();
+
+            ValidateUser(user);
+            ValidateBook(book);
+
+            if(actualListLoan == null)
+            {
+                throw new Exception("The loan list is null.");
+            }
+            foreach(var loan in actualListLoan)
+            {
+                if(loan.Value.Book.BookKey == book.BookKey)
+                {
+                    _loanBookRepository.ReturnBook(loan.Key);
+                }
+            }
+        }
+
         // User validation
         void ValidateUser(User user)
         {

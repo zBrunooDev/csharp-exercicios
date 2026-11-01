@@ -25,8 +25,15 @@ namespace LibraryRentalSystem.Entities
             LoanBookId = loanBookId;
             loanBookId++;
         }
-        public void RegisterReturn(DateTime returnDate)
+        public void RegisterReturn()
         {
+            if (ReturnDate.HasValue)
+            {
+                throw new InvalidOperationException("This book has already been returned.");
+            }
+
+            DateTime returnDate = DateTime.Now;
+
             if (returnDate < LoanDate)
             {
                 throw new ArgumentException("The return date cannot be earlier than the loan date.", nameof(returnDate));

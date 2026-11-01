@@ -20,5 +20,10 @@ namespace LibraryRentalSystem.Repository
         {
             return LoanBookCollection;
         }
+
+        public void ReturnBook(int IdLoan)
+        {
+            LoanBookCollection[IdLoan].RegisterReturn();
+        }
     }
 }
