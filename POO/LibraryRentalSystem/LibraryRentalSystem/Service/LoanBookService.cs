@@ -12,7 +12,6 @@ namespace LibraryRentalSystem.Service
     {
         private readonly UserRepository _userRepository;
         private readonly BookRepository _bookRepository;
-
         private readonly LoanBookRepository _loanBookRepository;
 
         public LoanBookService(UserRepository userRepository, BookRepository bookRepository, LoanBookRepository loanBookRepository)
@@ -41,26 +40,29 @@ namespace LibraryRentalSystem.Service
 
         public void ReturnLoanBook(int userId, string bookKey)
         {
-            // TODO: Identify the correct active loan using UserId and BookKey.
 
             User user = _userRepository.GetUserById(userId);
             Book book = _bookRepository.GetBookById(bookKey);
 
-            var actualListLoan = _loanBookRepository.GetAllLoanBooks();
-
             ValidateUser(user);
             ValidateBook(book);
 
-            if(actualListLoan == null)
+            var actualListLoan = _loanBookRepository.GetAllLoanBooks();
+
+            if (actualListLoan == null)
             {
                 throw new Exception("The loan list is null.");
             }
             foreach(var loan in actualListLoan)
             {
-                if(loan.Value.Book.BookKey == book.BookKey)
+                if(loan.Value.Book.BookKey == book.BookKey &&
+                   loan.Value.ReturnDate == null &&
+                   loan.Value.User.Id == user.Id)
                 {
                     _loanBookRepository.ReturnBook(loan.Key);
+                    return;
                 }
+                throw new InvalidOperationException("No active loan found for this user and book.");
             }
         }
 
