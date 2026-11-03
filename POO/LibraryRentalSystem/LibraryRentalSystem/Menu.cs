@@ -52,6 +52,10 @@ namespace LibraryRentalSystem
                     case 5:
                         LoanBookReturn();
                         continue;
+                    case 6:
+                        LoanHistory();
+                        continue;
+
                 }
             }
         }
@@ -64,6 +68,7 @@ namespace LibraryRentalSystem
             Console.WriteLine("(3) Consultar Livros");
             Console.WriteLine("(4) Pegar um livro emprestado. ");
             Console.WriteLine("(5) Devolver Livro");
+            Console.WriteLine("(6) Mostrar Histórico de Empréstimos.");
 
             Console.WriteLine();
 
@@ -169,6 +174,21 @@ namespace LibraryRentalSystem
             }
         }
 
+        void LoanHistory()
+        {
+            var listLoan = _loanBookRepository.GetAllLoanBooks();
 
+            if(listLoan.Count == 0)
+            {
+                Console.WriteLine("Não há empréstimo cadastrado;");
+            }
+            else
+            {
+                foreach (var item in listLoan)
+                {
+                    Console.WriteLine(item);
+                }
+            }
+        }
     }
 }

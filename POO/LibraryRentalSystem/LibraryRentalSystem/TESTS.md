@@ -438,78 +438,84 @@ Result:
 Observation:
 - Operation rejected.
 
-## From here I need to modify the code to add some functionalities.
-
 ## Module 05 - Loan history and availability
 
 ## Test 29 - Return a book and check the loan records
 
 Input:
+- option: 6
 
 
 Expected:
 - Previous loan records must be preserved.
 
 Result:
-
+- 🟢 Passed
 
 Observation:
-
+- records were preserved
 
 ## Test 30 - Borrow a book that has already been returned
 
 Input:
-
+- option: 6
 
 Expected:
 - A new loan record must be created.
 
 Result:
-
+- 🟢 Passed
 
 Observation:
-
+- A new loan record has been created.
 
 ## Test 31 - Return the new loan
 
 Input:
-
+option: 6.
 
 Expected:
 - Only the correct loan record must be updated.
 
 Result:
-
+- 🔴 Failed - Needs correction
 
 Observation:
-
+- The loan is active, but he hasn't repaid it.
 
 ## Test 32 - Try to borrow a book that is still on loan
 
 Input:
-
+- option: 4
+- User: 1
+- BookKey: BK003 -> Estava ativo em um emprestimo.
 
 Expected:
 - Prevent the operation.
 
 Result:
-
+- 🟢 Passed.
 
 Observation:
-
+- Operation rejected.
 
 ## Test 33 - Return a book and lend it to another user
 
 Input:
-
+- option: 5
+- User ID: 1 / 2 / 3
+- BookKey: BK001 / BK002
 
 Expected:
 - Allow the operation.
 
 Result:
-
+- 🔴 Failed - Needs correction
 
 Observation:
+- It is not allowing the operation.
+
+## From here I need to modify the code to add some functionalities.
 
 ## Module 06 - Robustness tests
 

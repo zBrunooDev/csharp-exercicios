@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -41,6 +42,21 @@ namespace LibraryRentalSystem.Entities
 
             ReturnDate = returnDate;
             LoanDuration = returnDate - LoanDate;
+        }
+
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+
+            sb.AppendLine($"_________________________________________________________________________________________");
+            sb.AppendLine($"Loan ID: {LoanBookId}");
+            sb.AppendLine($"Book: {Book.Title} - ID: {Book.BookKey}");
+            sb.AppendLine($"User: {User.Name} - ID: {User.Id}");
+            sb.AppendLine($"Initial: {LoanDate:HH:mm - dd/MM/yyyy} and Return: {ReturnDate:HH:mm - dd/MM/yyyy}");
+            sb.AppendLine($"Duration: {LoanDuration}");
+            sb.AppendLine($"_________________________________________________________________________________________");
+
+            return sb.ToString();
         }
     }
 }

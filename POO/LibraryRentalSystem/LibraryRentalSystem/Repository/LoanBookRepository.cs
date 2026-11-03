@@ -25,5 +25,7 @@ namespace LibraryRentalSystem.Repository
         {
             LoanBookCollection[IdLoan].RegisterReturn();
         }
+
+
     }
 }
