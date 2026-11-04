@@ -522,68 +522,76 @@ Observation:
 ## Test 34 - Enter a non-existent menu option (e.g., 9)
 
 Input:
+- option: 9
 
 
 Expected:
 - Display an invalid option message.
 
 Result:
-
+- 🟡 Pending
 
 Observation:
-
+- There was no message reply.
 
 ## Test 35 - Enter letters when the menu expects a number
 
 Input:
-
+- option: abc
 
 Expected:
 - The application must not terminate unexpectedly.
 
 Result:
-
+- 🔴 Failed - Needs correction
 
 Observation:
-
+- System broken
 
 ## Test 36 - Enter an empty ID
 
 Input:
+-BookKey: "Empty" -> red.
+-User ID: "Empty" -> Green
 
 
 Expected:
 - Reject the input.
 
 Result:
-
+- 🟡 Pending
+- 🟢 Passed.
 
 Observation:
-
+- BookKey accepted an empty value, which is an error.
+- The user ID does not accept empty values.
 
 ## Test 37 - Enter a BookKey containing spaces or unexpected characters
 
 Input:
-
+- "BLK   566    asd 00"
 
 Expected:
 - Handle invalid input.
 
 Result:
-
+- 🔴 Failed - Needs correction
 
 Observation:
-
+- Bookey accepts any type of key, that's a problem.
 
 ## Test 38 - Try to return a book with no registered loan
 
 Input:
-
+- Users
+- Book
+- options
 
 Expected:
 - Reject the operation.
 
 Result:
-
+- 🔴 Failed - Needs correction
 
 Observation:
+- The operation proceeds normally the first time, but when the same book is returned a second time, the program throws an exception.
