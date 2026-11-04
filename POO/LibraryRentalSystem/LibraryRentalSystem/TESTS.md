@@ -77,10 +77,10 @@ Expected:
 - Reject invalid input
 
 Result:
-- 🔴 Failed - Needs correction
+- 🟢 Passed
 
 Observation:
-- I need to fix this validation so that it doesn't accept empty codes.
+- Operation Valid.
 
 ## Test 06 - Register a book with an empty title.
 

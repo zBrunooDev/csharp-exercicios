@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using LibraryRentalSystem.Entities;
@@ -19,6 +20,15 @@ namespace LibraryRentalSystem.Service
         // Verify if has books duplicated
         public void AddBookInLibrary(Book book)
         {
+            if (string.IsNullOrWhiteSpace(book.BookKey))
+                throw new ArgumentException("The book key cannot be null or empty.", nameof(book));
+
+            if (string.IsNullOrWhiteSpace(book.Title))
+                throw new ArgumentException("The book title cannot be null or empty.", nameof(book));
+
+            if (string.IsNullOrWhiteSpace(book.Author))
+                throw new ArgumentException("The author of the book (Author) cannot be null or empty.", nameof(book));
+
             var actualList = _bookRepository.GetAll();
 
             if (actualList.Any(existingBook =>
