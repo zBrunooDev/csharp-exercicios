@@ -30,8 +30,9 @@ namespace LibraryRentalSystem
 
             _loanBookRepository = new LoanBookRepository();
             _loanBookService = new LoanBookService(_userRepository, _bookRepository, _loanBookRepository);
+            bool running = true;
 
-            while (true)
+            while (running)
             {
                 Display();
                 int chose = OptionEntry();
@@ -55,6 +56,10 @@ namespace LibraryRentalSystem
                     case 6:
                         LoanHistory();
                         continue;
+                    case 0:
+                        Console.WriteLine("Encerrando o sistema...");
+                        running = false;
+                        break;
 
                 }
             }
@@ -69,6 +74,7 @@ namespace LibraryRentalSystem
             Console.WriteLine("(4) Pegar um livro emprestado. ");
             Console.WriteLine("(5) Devolver Livro");
             Console.WriteLine("(6) Mostrar Histórico de Empréstimos.");
+            Console.WriteLine("(0) Finalizar o programa.");
 
             Console.WriteLine();
 
