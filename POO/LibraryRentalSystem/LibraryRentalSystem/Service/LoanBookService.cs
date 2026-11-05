@@ -62,8 +62,8 @@ namespace LibraryRentalSystem.Service
                     _loanBookRepository.ReturnBook(loan.Key);
                     return;
                 }
-                throw new InvalidOperationException("No active loan found for this user and book.");
             }
+            throw new InvalidOperationException("No active loan found for this user and book.");
         }
 
         // User validation

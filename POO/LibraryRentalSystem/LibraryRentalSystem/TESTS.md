@@ -91,10 +91,11 @@ Expected:
 - Reject invalid input
 
 Result:
-- 🔴 Failed - Needs correction
+- 🟢 Passed
+
 
 Observation:
-- I need to fix this validation so that it doesn't accept empty names.
+- Operation Valid.
 
 
 ## Module 02 - User Registration
@@ -388,10 +389,10 @@ Expected:
 - Book returned successfully.
 
 Result:
-- 🔴 Failed - Needs correction
+- 🟢 Passed
 
 Observation:
-- The book cannot be returned even if it was borrowed by User 1.
+- The book is usually returned with the history preserved.
 
 ## Test 26 - User 1 tries to return BK002 without ever having borrowed it
 
@@ -478,17 +479,17 @@ Expected:
 - Only the correct loan record must be updated.
 
 Result:
-- 🔴 Failed - Needs correction
+- 🟢 Passed
 
 Observation:
-- The loan is active, but he hasn't repaid it.
-
+- The system preserved the previous records and created a new record for the subsequent loan.
+- 
 ## Test 32 - Try to borrow a book that is still on loan
 
 Input:
 - option: 4
 - User: 1
-- BookKey: BK003 -> Estava ativo em um emprestimo.
+- BookKey: BK003 -> I was actively involved in a loan.
 
 Expected:
 - Prevent the operation.
@@ -510,10 +511,10 @@ Expected:
 - Allow the operation.
 
 Result:
-- 🔴 Failed - Needs correction
+- 🟢 Passed.
 
 Observation:
-- It is not allowing the operation.
+- Operation occurs normally.
 
 ## From here I need to modify the code to add some functionalities.
 
@@ -591,7 +592,7 @@ Expected:
 - Reject the operation.
 
 Result:
-- 🔴 Failed - Needs correction
+- 🟢 Passed.
 
 Observation:
-- The operation proceeds normally the first time, but when the same book is returned a second time, the program throws an exception.
+- The operation was successfully rejected; exception messages will be adjusted later. 
