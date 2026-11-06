@@ -36,60 +36,71 @@ namespace LibraryRentalSystem
             {
                 Display();
                 int chose = OptionEntry();
-                switch (chose)
+                if(chose  == -1 || chose > 6)
                 {
-                    case 1:
-                        BookRegistration();
-                        continue;
-                    case 2:
-                        UserRegister();
-                        continue;
-                    case 3:
-                        ViewAvailables();
-                        continue;
-                    case 4:
-                        LoanBookRegister();
-                        continue;
-                    case 5:
-                        LoanBookReturn();
-                        continue;
-                    case 6:
-                        LoanHistory();
-                        continue;
-                    case 0:
-                        Console.WriteLine("Encerrando o sistema...");
-                        running = false;
-                        break;
-
+                    Console.WriteLine("Opção errada!");
+                }
+                else
+                {
+                    switch (chose)
+                    {
+                        case 1:
+                            BookRegistration();
+                            continue;
+                        case 2:
+                            UserRegister();
+                            continue;
+                        case 3:
+                            ViewAvailables();
+                            continue;
+                        case 4:
+                            LoanBookRegister();
+                            continue;
+                        case 5:
+                            LoanBookReturn();
+                            continue;
+                        case 6:
+                            LoanHistory();
+                            continue;
+                        case 0:
+                            Console.WriteLine("Encerrando o sistema...");
+                            running = false;
+                            break;
+                    }
                 }
             }
         }
         public void Display()
         {
-            Console.WriteLine("------------Menu------------\n");
-            Console.WriteLine("Escolha as opções");
-            Console.WriteLine("(1) Cadastrar Livro");
-            Console.WriteLine("(2) Cadastrar usuário");
-            Console.WriteLine("(3) Consultar Livros");
-            Console.WriteLine("(4) Pegar um livro emprestado. ");
-            Console.WriteLine("(5) Devolver Livro");
-            Console.WriteLine("(6) Mostrar Histórico de Empréstimos.");
-            Console.WriteLine("(0) Finalizar o programa.");
-
             Console.WriteLine();
+
+            Console.WriteLine("Loan Book Service");
+            Console.WriteLine();
+            Console.WriteLine("============================================");
+            Console.WriteLine("[1] Cadastrar Livro");
+            Console.WriteLine("[2] Cadastrar usuário");
+            Console.WriteLine("[3] Consultar Livros");
+            Console.WriteLine("[4] Pegar um livro emprestado.");
+            Console.WriteLine("[5] Devolver Livro");
+            Console.WriteLine("[6] Mostrar Histórico de Empréstimos.");
+            Console.WriteLine("[0] Sair");
+            Console.WriteLine("============================================");
+            Console.Write("Escolha uma opção: ");
 
         }
         int OptionEntry()
         {
-            try
             {
-                int option = int.Parse(Console.ReadLine());
-                return option;
-            }
-            catch (FormatException e)
-            {
-                Console.WriteLine(e.Message);
-                return 0;
+                string input = Console.ReadLine();
+
+                int option;
+                bool isNumber = int.TryParse(input, out option);
+
+                if (isNumber)
+                {
+                    return option;
+                }
+                return -1;
             }
             
         }

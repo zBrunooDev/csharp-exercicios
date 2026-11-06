@@ -544,10 +544,10 @@ Expected:
 - The application must not terminate unexpectedly.
 
 Result:
-- 🔴 Failed - Needs correction
+- 🟢 Passed.
 
 Observation:
-- System broken
+- Operation validated
 
 ## Test 36 - Enter an empty ID
 
