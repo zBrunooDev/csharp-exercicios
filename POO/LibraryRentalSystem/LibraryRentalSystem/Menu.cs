@@ -78,7 +78,7 @@ namespace LibraryRentalSystem
             Console.WriteLine();
             Console.WriteLine("============================================");
             Console.WriteLine("[1] Cadastrar Livro - formato valido [BK001]");
-            Console.WriteLine("[2] Cadastrar usuário");
+            Console.WriteLine("[2] Cadastrar usuário - Somente letras.");
             Console.WriteLine("[3] Consultar Livros");
             Console.WriteLine("[4] Pegar um livro emprestado.");
             Console.WriteLine("[5] Devolver Livro");

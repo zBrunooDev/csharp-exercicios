@@ -28,5 +28,6 @@ namespace LibraryRentalSystem.Entities
             User other = obj as User;
             return Id.CompareTo(other.Id);
         }
+
     }
 }

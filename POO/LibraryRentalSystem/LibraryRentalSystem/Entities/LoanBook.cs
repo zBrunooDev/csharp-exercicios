@@ -52,7 +52,8 @@ namespace LibraryRentalSystem.Entities
             sb.AppendLine($"Loan ID: {LoanBookId}");
             sb.AppendLine($"Book: {Book.Title} - ID: {Book.BookKey}");
             sb.AppendLine($"User: {User.Name} - ID: {User.Id}");
-            sb.AppendLine($"Initial: {LoanDate:HH:mm - dd/MM/yyyy} and Return: {ReturnDate:HH:mm - dd/MM/yyyy}");
+            if(ReturnDate != null) sb.AppendLine($"Initial: {LoanDate:HH:mm - dd/MM/yyyy} and Return: {ReturnDate:HH:mm - dd/MM/yyyy}");
+            else sb.AppendLine($"Initial: {LoanDate:HH:mm - dd/MM/yyyy} and Return: The book has not yet been returned. ");
             sb.AppendLine($"Duration: {LoanDuration}");
             sb.AppendLine($"_________________________________________________________________________________________");
 
