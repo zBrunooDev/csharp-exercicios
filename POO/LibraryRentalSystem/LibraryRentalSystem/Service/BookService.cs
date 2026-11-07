@@ -6,6 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using LibraryRentalSystem.Entities;
 using LibraryRentalSystem.Repository;
+using System.Text.RegularExpressions;
+
 
 namespace LibraryRentalSystem.Service
 {
@@ -31,6 +33,8 @@ namespace LibraryRentalSystem.Service
 
             var actualList = _bookRepository.GetAll();
 
+            ValidateBookKeyFormat(book.BookKey);
+
             if (actualList.Any(existingBook =>
                     existingBook.BookKey == book.BookKey))
             {
@@ -49,6 +53,16 @@ namespace LibraryRentalSystem.Service
                 throw new Exception("A list is empty!");
             }
             return actualList;
+        }
+
+        public void ValidateBookKeyFormat(string bookKey)
+        {
+            bool isValid = Regex.IsMatch(bookKey, @"^BK\d{3}$");
+
+            if (!isValid)
+            {
+                throw new FormatException("The code does not match the template");
+            }
         }
 
     }

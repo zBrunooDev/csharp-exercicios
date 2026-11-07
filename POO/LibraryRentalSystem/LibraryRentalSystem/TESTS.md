@@ -140,11 +140,10 @@ Expected:
 - Check if the system allows duplicate names.
 
 Result:
-- 🟡 Pending
-- Analyze whether it makes sense to maintain this behavior.
+- 🟢 Passed
 
 Observation:
-- The system allows registration of users with the same names.
+- The user has a unique ID.
 
 ## Test 10 - Find a non-existent user.
 
@@ -530,10 +529,10 @@ Expected:
 - Display an invalid option message.
 
 Result:
-- 🟡 Pending
+- 🟢 Passed.
 
 Observation:
-- There was no message reply.
+- Operation valid.
 
 ## Test 35 - Enter letters when the menu expects a number
 
@@ -560,12 +559,11 @@ Expected:
 - Reject the input.
 
 Result:
-- 🟡 Pending
+
 - 🟢 Passed.
 
 Observation:
-- BookKey accepted an empty value, which is an error.
-- The user ID does not accept empty values.
+- The user ID and BookKey does not accept empty values.
 
 ## Test 37 - Enter a BookKey containing spaces or unexpected characters
 
@@ -576,10 +574,10 @@ Expected:
 - Handle invalid input.
 
 Result:
-- 🔴 Failed - Needs correction
+- 🟢 Passed.
 
 Observation:
-- Bookey accepts any type of key, that's a problem.
+- A operação foi rejeitada com sucesso;
 
 ## Test 38 - Try to return a book with no registered loan
 
