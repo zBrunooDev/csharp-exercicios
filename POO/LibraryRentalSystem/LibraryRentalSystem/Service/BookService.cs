@@ -19,6 +19,9 @@ namespace LibraryRentalSystem.Service
         // Verify if has books duplicated
         public void AddBookInLibrary(Book book)
         {
+            if (book == null)
+                throw new ArgumentNullException(nameof(book));
+
             if (string.IsNullOrWhiteSpace(book.BookKey))
                 throw new ArgumentException("The book key cannot be null or empty.", nameof(book));
 
@@ -35,7 +38,7 @@ namespace LibraryRentalSystem.Service
             if (actualList.Any(existingBook =>
                     existingBook.BookKey == book.BookKey))
             {
-                throw new Exception("This book is already registered.");
+                throw new InvalidOperationException("This book is already registered.");
             }
             _bookRepository.AddBook(book);
         }
@@ -47,7 +50,7 @@ namespace LibraryRentalSystem.Service
             var actualList = _bookRepository.GetAll();
             if(actualList.Count == 0)
             {
-                throw new Exception("A list is empty!");
+                throw new InvalidOperationException("A list is empty!");
             }
             return actualList;
         }

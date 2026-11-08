@@ -51,7 +51,7 @@ namespace LibraryRentalSystem.Service
 
             if (actualListLoan == null)
             {
-                throw new Exception("The loan list is null.");
+                throw new InvalidOperationException("The loan list is null.");
             }
             foreach(var loan in actualListLoan)
             {
@@ -83,7 +83,7 @@ namespace LibraryRentalSystem.Service
             }
             if(!(actualListUser.Contains(user)))
             {
-                throw new Exception("The user is not registered.");
+                throw new InvalidOperationException("The user is not registered.");
             }
 
         }
@@ -118,12 +118,12 @@ namespace LibraryRentalSystem.Service
 
             if (borrowedBooks == null)
             {
-                throw new Exception("The loan list is null.");
+                throw new InvalidOperationException("The loan list is null.");
             }
 
             if (borrowedBooks.Any(loan => loan.Value.Book.BookKey == book.BookKey && loan.Value.ReturnDate == null))
             {
-                throw new Exception("The book is already on loan.");
+                throw new InvalidOperationException("The book is already on loan.");
             }
         }     
     }

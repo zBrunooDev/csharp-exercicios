@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using LibraryRentalSystem.Entities;
@@ -36,7 +37,7 @@ namespace LibraryRentalSystem
             {
                 Display();
                 int chose = OptionEntry();
-                if(chose  == -1 || chose > 6)
+                if (chose < 0 || chose > 6)
                 {
                     Console.WriteLine("Opção errada!");
                 }
@@ -90,7 +91,6 @@ namespace LibraryRentalSystem
         }
         int OptionEntry()
         {
-            {
                 string input = Console.ReadLine();
 
                 int option;
@@ -100,9 +100,7 @@ namespace LibraryRentalSystem
                 {
                     return option;
                 }
-                return -1;
-            }
-            
+                return -1;       
         }
 
         void BookRegistration()
@@ -119,9 +117,17 @@ namespace LibraryRentalSystem
                 Book book = new Book(key, title, author);
                 _bookService.AddBookInLibrary(book);
             }
-            catch(Exception e)
+            catch (ArgumentException e)
             {
-                Console.WriteLine($"{e.Message}");
+                Console.WriteLine(e.Message);
+            }
+            catch (FormatException e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            catch (InvalidOperationException e)
+            {
+                Console.WriteLine(e.Message);
             }
         }
 
@@ -134,11 +140,15 @@ namespace LibraryRentalSystem
                 User user = new User(name);
                 _userService.RegisterUser(user);
             }
-            catch(Exception e)
+            catch (ArgumentException e)
             {
-                Console.WriteLine($"{e.Message}");
+                Console.WriteLine(e.Message);
             }
-            
+            catch (FormatException e)
+            {
+                Console.WriteLine(e.Message);
+            }
+
         }
 
         void ViewAvailables()
@@ -151,10 +161,10 @@ namespace LibraryRentalSystem
                     Console.WriteLine(item);
                 }
             }
-            catch( Exception e ) 
+            catch (InvalidOperationException e)
             {
-                Console.WriteLine($"{e.Message}");
-            }        
+                Console.WriteLine(e.Message);
+            }
         }
 
         void LoanBookRegister()
@@ -187,7 +197,7 @@ namespace LibraryRentalSystem
             }
             catch (Exception e)
             {
-                Console.WriteLine(e);
+                Console.WriteLine(e.Message);
             }
         }
 
@@ -203,7 +213,7 @@ namespace LibraryRentalSystem
             {
                 foreach (var item in listLoan)
                 {
-                    Console.WriteLine(item);
+                    Console.WriteLine(item.Value.ToString());
                 }
             }
         }

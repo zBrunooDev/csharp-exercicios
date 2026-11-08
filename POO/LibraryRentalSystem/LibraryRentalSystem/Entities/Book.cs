@@ -19,23 +19,6 @@ namespace LibraryRentalSystem.Entities
             Title = title;
             Author = author;
         }
-
-        /*
-        public override int GetHashCode()
-        {
-            return BookKey.GetHashCode();
-        }
-        public override bool Equals(object obj)
-        {
-            if(!(obj is Book))
-            {
-                throw new ArgumentException("It does not correspond to the correct object type.");
-            }
-            Book other = obj as Book;
-            return BookKey == other.BookKey;
-        }
-        */
-
         public int CompareTo(object obj)
         {
             if (!(obj is  Book other))
@@ -47,7 +30,6 @@ namespace LibraryRentalSystem.Entities
 
             return BookKey.CompareTo(other.BookKey);
         }
-
         public override string ToString()
         {
             return $"Code: {BookKey}, Title: {Title}, Author: {Author}";
