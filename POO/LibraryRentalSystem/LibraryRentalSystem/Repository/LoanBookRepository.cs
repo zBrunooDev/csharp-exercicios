@@ -10,10 +10,13 @@ namespace LibraryRentalSystem.Repository
     internal class LoanBookRepository
     {
         private Dictionary<int, LoanBook> LoanBookCollection { get; set; } = new Dictionary<int, LoanBook>();
+        private int _loanBookId = 1;
 
-        public void AddLoanBook(int loanKey, LoanBook loanBook)
+        public void AddLoanBook(LoanBook loanBook)
         {
-            LoanBookCollection.Add(loanKey, loanBook);
+            loanBook.LoanBookId = _loanBookId++;
+
+            LoanBookCollection.Add(loanBook.LoanBookId, loanBook);
         }
 
         public Dictionary<int, LoanBook> GetAllLoanBooks()

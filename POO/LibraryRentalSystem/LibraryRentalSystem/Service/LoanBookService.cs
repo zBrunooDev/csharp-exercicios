@@ -35,7 +35,7 @@ namespace LibraryRentalSystem.Service
 
             // Register loan
 
-            _loanBookRepository.AddLoanBook(loanBook.LoanBookId, loanBook);
+            _loanBookRepository.AddLoanBook(loanBook);
         }
 
         public void ReturnLoanBook(int userId, string bookKey)
@@ -105,7 +105,7 @@ namespace LibraryRentalSystem.Service
             }
             if (!(actualListBook.Contains(book)))
             {
-                throw new Exception("The book is not registered.");
+                throw new InvalidOperationException("The book is not registered.");
             }
 
         }

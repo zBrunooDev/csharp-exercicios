@@ -172,7 +172,12 @@ namespace LibraryRentalSystem
             try
             {
                 Console.Write("Digite o ID do usuário: ");
-                int user = int.Parse(Console.ReadLine());
+
+                if (!int.TryParse(Console.ReadLine(), out int user))
+                {
+                    Console.WriteLine("Invalid user ID.");
+                    return;
+                }
                 Console.Write("Digite o codigo do livro: ");
                 string bookKey = Console.ReadLine();
 
@@ -189,7 +194,13 @@ namespace LibraryRentalSystem
             try
             {
                 Console.Write("Digite o ID do usuário: ");
-                int user = int.Parse(Console.ReadLine());
+
+                if (!int.TryParse(Console.ReadLine(), out int user))
+                {
+                    Console.WriteLine("Invalid user ID.");
+                    return;
+                }
+
                 Console.Write("Digite o codigo do livro: ");
                 string bookKey = Console.ReadLine();
 

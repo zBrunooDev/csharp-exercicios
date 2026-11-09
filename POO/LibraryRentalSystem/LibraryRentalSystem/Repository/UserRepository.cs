@@ -11,8 +11,11 @@ namespace LibraryRentalSystem.Repository
     {
         private SortedSet<User> UsersCollection { get; set; } = new SortedSet<User>();
 
+        private int _contId = 1;
+
         public void AddUser(User user)
         {
+            user.Id = _contId++;
             UsersCollection.Add(user);
         }
 
