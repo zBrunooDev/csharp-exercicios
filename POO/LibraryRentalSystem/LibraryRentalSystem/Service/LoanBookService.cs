@@ -125,6 +125,11 @@ namespace LibraryRentalSystem.Service
             {
                 throw new InvalidOperationException("The book is already on loan.");
             }
-        }     
+        }
+
+        public IReadOnlyDictionary<int, LoanBook> GetAllLoans()
+        {
+            return _loanBookRepository.GetAllLoanBooks();
+        }
     }
 }

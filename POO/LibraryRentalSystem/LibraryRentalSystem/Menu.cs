@@ -213,7 +213,7 @@ namespace LibraryRentalSystem
 
         void LoanHistory()
         {
-            var listLoan = _loanBookRepository.GetAllLoanBooks();
+            var listLoan = _loanBookService.GetAllLoans();
 
             if(listLoan.Count == 0)
             {
