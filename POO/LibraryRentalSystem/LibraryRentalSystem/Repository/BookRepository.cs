@@ -17,7 +17,7 @@ namespace LibraryRentalSystem.Repository
             Books.Add(book);
         }
 
-        public SortedSet<Book> GetAll()
+        public IReadOnlyCollection<Book> GetAll()
         {
             return Books;
         }

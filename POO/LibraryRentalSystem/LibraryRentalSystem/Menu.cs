@@ -200,7 +200,6 @@ namespace LibraryRentalSystem
                     Console.WriteLine("Invalid user ID.");
                     return;
                 }
-
                 Console.Write("Digite o codigo do livro: ");
                 string bookKey = Console.ReadLine();
 

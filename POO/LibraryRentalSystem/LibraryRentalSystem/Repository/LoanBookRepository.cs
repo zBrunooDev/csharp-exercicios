@@ -19,7 +19,7 @@ namespace LibraryRentalSystem.Repository
             LoanBookCollection.Add(loanBook.LoanBookId, loanBook);
         }
 
-        public Dictionary<int, LoanBook> GetAllLoanBooks()
+        public IReadOnlyDictionary<int, LoanBook> GetAllLoanBooks()
         {
             return LoanBookCollection;
         }

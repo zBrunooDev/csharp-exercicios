@@ -45,7 +45,7 @@ namespace LibraryRentalSystem.Service
 
         // Output books.
 
-        public SortedSet<Book> AllBooks()
+        public IReadOnlyCollection<Book> AllBooks()
         {
             var actualList = _bookRepository.GetAll();
             if(actualList.Count == 0)

@@ -19,7 +19,7 @@ namespace LibraryRentalSystem.Repository
             UsersCollection.Add(user);
         }
 
-        public SortedSet<User> GetAllUser()
+        public IReadOnlyCollection<User> GetAllUser()
         {
             return UsersCollection;
         }
