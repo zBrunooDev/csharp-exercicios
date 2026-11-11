@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 using LibraryRentalSystem.Entities;
 using LibraryRentalSystem.Repository;
 using LibraryRentalSystem.Service;
+
 
 namespace LibraryRentalSystem
 {
@@ -39,7 +35,7 @@ namespace LibraryRentalSystem
                 int chose = OptionEntry();
                 if (chose < 0 || chose > 6)
                 {
-                    Console.WriteLine("Opção errada!");
+                    Console.WriteLine("Invalid option!");
                 }
                 else
                 {
@@ -64,7 +60,7 @@ namespace LibraryRentalSystem
                             LoanHistory();
                             continue;
                         case 0:
-                            Console.WriteLine("Encerrando o sistema...");
+                            Console.WriteLine("Shutting down the system...");
                             running = false;
                             break;
                     }
@@ -75,41 +71,41 @@ namespace LibraryRentalSystem
         {
             Console.WriteLine();
 
-            Console.WriteLine("Loan Book Service");
+            Console.WriteLine("Library Rental System");
             Console.WriteLine();
             Console.WriteLine("============================================");
-            Console.WriteLine("[1] Cadastrar Livro - formato valido [BK001]");
-            Console.WriteLine("[2] Cadastrar usuário - Somente letras.");
-            Console.WriteLine("[3] Consultar Livros");
-            Console.WriteLine("[4] Pegar um livro emprestado.");
-            Console.WriteLine("[5] Devolver Livro");
-            Console.WriteLine("[6] Mostrar Histórico de Empréstimos.");
-            Console.WriteLine("[0] Sair");
+            Console.WriteLine("[1] Register a Book - valid format [BK001]");
+            Console.WriteLine("[2] Register a User - Letters only.");
+            Console.WriteLine("[3] View Books");
+            Console.WriteLine("[4] Borrow a Book.");
+            Console.WriteLine("[5] Return a Book");
+            Console.WriteLine("[6] View Loan History.");
+            Console.WriteLine("[0] Exit");
             Console.WriteLine("============================================");
-            Console.Write("Escolha uma opção: ");
+            Console.Write("Choose an option: ");
 
         }
         int OptionEntry()
         {
-                string input = Console.ReadLine();
+            string input = Console.ReadLine();
 
-                int option;
-                bool isNumber = int.TryParse(input, out option);
+            int option;
+            bool isNumber = int.TryParse(input, out option);
 
-                if (isNumber)
-                {
-                    return option;
-                }
-                return -1;       
+            if (isNumber)
+            {
+                return option;
+            }
+            return -1;
         }
 
         void BookRegistration()
         {
             try
             {
-                Console.Write("Digite o código do livro: ");
+                Console.Write("Enter the book code: ");
                 string key = Console.ReadLine();
-                Console.Write("Digite o nome do Livro: ");
+                Console.Write("Enter the book title: ");
                 string title = Console.ReadLine();
                 Console.Write("Author: ");
                 string author = Console.ReadLine();
@@ -133,9 +129,9 @@ namespace LibraryRentalSystem
 
         void UserRegister()
         {
-            try 
+            try
             {
-                Console.Write("Digite seu nome de usuário: ");
+                Console.Write("Enter your username: ");
                 string name = Console.ReadLine();
                 User user = new User(name);
                 _userService.RegisterUser(user);
@@ -171,20 +167,20 @@ namespace LibraryRentalSystem
         {
             try
             {
-                Console.Write("Digite o ID do usuário: ");
+                Console.Write("Enter the user ID: ");
 
                 if (!int.TryParse(Console.ReadLine(), out int user))
                 {
                     Console.WriteLine("Invalid user ID.");
                     return;
                 }
-                Console.Write("Digite o codigo do livro: ");
+                Console.Write("Enter the book code: ");
                 string bookKey = Console.ReadLine();
 
                 _loanBookService.Loan(user, bookKey);
             }
-            catch(Exception e)
-            { 
+            catch (Exception e)
+            {
                 Console.WriteLine(e);
             }
         }
@@ -193,14 +189,14 @@ namespace LibraryRentalSystem
         {
             try
             {
-                Console.Write("Digite o ID do usuário: ");
+                Console.Write("Enter the user ID: ");
 
                 if (!int.TryParse(Console.ReadLine(), out int user))
                 {
                     Console.WriteLine("Invalid user ID.");
                     return;
                 }
-                Console.Write("Digite o codigo do livro: ");
+                Console.Write("Enter the book code: ");
                 string bookKey = Console.ReadLine();
 
                 _loanBookService.ReturnLoanBook(user, bookKey);
@@ -215,9 +211,9 @@ namespace LibraryRentalSystem
         {
             var listLoan = _loanBookService.GetAllLoans();
 
-            if(listLoan.Count == 0)
+            if (listLoan.Count == 0)
             {
-                Console.WriteLine("Não há empréstimo cadastrado;");
+                Console.WriteLine("No loans have been registered.");
             }
             else
             {
@@ -229,3 +225,4 @@ namespace LibraryRentalSystem
         }
     }
 }
+

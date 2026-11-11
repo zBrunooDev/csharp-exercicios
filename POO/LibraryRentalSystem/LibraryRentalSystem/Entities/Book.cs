@@ -1,13 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LibraryRentalSystem.Entities
 {
-    internal class Book : IComparable
+    internal class Book : IComparable<Book>
     {
         public string BookKey { get; private set; }
         public string Title { get; private set; }
@@ -19,10 +14,9 @@ namespace LibraryRentalSystem.Entities
             Title = title;
             Author = author;
         }
-        public int CompareTo(object obj)
+        public int CompareTo(Book other)
         {
-            if (!(obj is  Book other))
-                throw new ArgumentException("Invalid object type.");
+            if(other == null) return 1;
 
             int titleComparsion = Title.CompareTo(other.Title);
             if(titleComparsion != 0)

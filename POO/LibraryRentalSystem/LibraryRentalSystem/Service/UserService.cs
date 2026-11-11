@@ -14,9 +14,6 @@ namespace LibraryRentalSystem.Service
         {
             _userRepository = userRepository;
         }
-
-        // Add User
-
         public void RegisterUser(User user)
         {
             if (user == null)
@@ -29,7 +26,6 @@ namespace LibraryRentalSystem.Service
 
             _userRepository.AddUser(user);
         }
-
         public void ValidateUserNameFormat(string name)
         {
             bool isValid = Regex.IsMatch(name, @"^\p{L}+$");

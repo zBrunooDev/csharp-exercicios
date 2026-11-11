@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LibraryRentalSystem.Entities
 {
-    internal class User : IComparable
+    internal class User : IComparable<User>
     {
         public int Id { get; internal set; }
         public string Name { get; private set; }
@@ -16,15 +12,12 @@ namespace LibraryRentalSystem.Entities
             Name = name;
         }
 
-        public int CompareTo(object obj)
+        public int CompareTo(User other)
         {
-            if (!(obj is User))
-            {
-                throw new ArgumentException("It does not correspond to the correct object type.");
-            }
-            User other = obj as User;
+            if (other is null)
+                return 1;
+
             return Id.CompareTo(other.Id);
         }
-
     }
 }

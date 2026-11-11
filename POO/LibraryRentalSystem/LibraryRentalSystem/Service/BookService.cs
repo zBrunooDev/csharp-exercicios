@@ -42,9 +42,6 @@ namespace LibraryRentalSystem.Service
             }
             _bookRepository.AddBook(book);
         }
-
-        // Output books.
-
         public IReadOnlyCollection<Book> AllBooks()
         {
             var actualList = _bookRepository.GetAll();

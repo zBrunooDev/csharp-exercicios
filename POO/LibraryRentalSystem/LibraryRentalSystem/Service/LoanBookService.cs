@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using LibraryRentalSystem.Repository;
 using LibraryRentalSystem.Entities;
 
@@ -32,8 +30,6 @@ namespace LibraryRentalSystem.Service
             CheckAvailability(book);
 
             LoanBook loanBook = new LoanBook(user, book, DateTime.Now);
-
-            // Register loan
 
             _loanBookRepository.AddLoanBook(loanBook);
         }
@@ -111,7 +107,6 @@ namespace LibraryRentalSystem.Service
         }
 
         // Check availability
-
         public void CheckAvailability(Book book)
         {
             var borrowedBooks = _loanBookRepository.GetAllLoanBooks();
