@@ -19,7 +19,20 @@ namespace StudyPredicate
             list.Add(new Product("HD Case", 80.90));
 
             // RemoveAll expects a Predicate<Product> as its parameter signature
-            list.RemoveAll(ProductTest);
+            /*list.RemoveAll(ProductTest);
+
+            foreach (Product p in list)
+            {
+                Console.WriteLine(p);
+            }
+            */
+            Console.WriteLine("-----------------------------------");
+
+            // Predicate Action (Example with ForEach)
+
+            Action<Product> act = UpdatePrice;
+
+            list.ForEach(act);
 
             foreach (Product p in list)
             {
@@ -27,9 +40,14 @@ namespace StudyPredicate
             }
         }
         // Predicate signature: receives an object (Product) and returns a bool
-        public static bool ProductTest(Product product)
+        static bool ProductTest(Product product)
         {
             return product.Price > 100;
+        }
+
+        static void UpdatePrice(Product p)
+        {
+            p.Price += p.Price * 0.1;
         }
     }
 }
