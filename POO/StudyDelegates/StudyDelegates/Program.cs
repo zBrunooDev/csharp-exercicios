@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 namespace StudyDelegates
 {
     delegate double BinaryNumericOperation(double n1, double n2);
+    delegate void BinaryNumericOperation2(double n1, double n2);
     class Program
     {
         static void Main(string[] args)
@@ -21,6 +22,18 @@ namespace StudyDelegates
             double result = op.Invoke(a, b);
 
             Console.WriteLine(result);
+
+            Console.WriteLine("----------------------------------------------------");
+            // Example of multicast delegates
+
+            double d = 10;
+            double e = 12;
+
+            BinaryNumericOperation2 op1 = CalculationService.ShowSum;
+            op1 += CalculationService.ShowMax;
+            op1(d, e);
+
+
         }
     }   
 }
