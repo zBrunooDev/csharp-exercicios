@@ -30,9 +30,7 @@ namespace StudyPredicate
 
             // Predicate Action (Example with ForEach)
 
-            Action<Product> act = UpdatePrice;
-
-            list.ForEach(act);
+            list.ForEach(p => { p.Price += p.Price * 0.1; }); // Predicate with lambda in Line
 
             foreach (Product p in list)
             {
@@ -45,9 +43,5 @@ namespace StudyPredicate
             return product.Price > 100;
         }
 
-        static void UpdatePrice(Product p)
-        {
-            p.Price += p.Price * 0.1;
-        }
     }
 }
