@@ -28,7 +28,7 @@ namespace StudyPredicate
             */
             Console.WriteLine("-----------------------------------");
 
-            // Predicate Action (Example with ForEach)
+            // Action Example with ForEach
 
             list.ForEach(p => { p.Price += p.Price * 0.1; }); // Predicate with lambda in Line
 
@@ -36,6 +36,19 @@ namespace StudyPredicate
             {
                 Console.WriteLine(p);
             }
+
+            Console.WriteLine("-----------------------------------");
+
+            // Func Example with Select
+
+            Func<Product, string> func = p => p.Name.ToUpper();
+
+            List<string> result = list.Select(func).ToList();
+            foreach(string p in result)
+            {
+                Console.WriteLine(p);
+            }
+
         }
         // Predicate signature: receives an object (Product) and returns a bool
         static bool ProductTest(Product product)
