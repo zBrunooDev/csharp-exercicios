@@ -1,5 +1,5 @@
 ﻿
-namespace StudyPredicate
+namespace StudyPredicateActionFunc
 {
     internal class Product
     {
