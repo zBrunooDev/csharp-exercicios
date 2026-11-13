@@ -41,9 +41,7 @@ namespace StudyPredicate
 
             // Func Example with Select
 
-            Func<Product, string> func = p => p.Name.ToUpper();
-
-            List<string> result = list.Select(func).ToList();
+            List<string> result = list.Select(p => p.Name.ToUpper()).ToList(); // inline func
             foreach(string p in result)
             {
                 Console.WriteLine(p);
