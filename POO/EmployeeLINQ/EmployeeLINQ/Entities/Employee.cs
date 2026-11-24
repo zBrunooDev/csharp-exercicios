@@ -18,8 +18,5 @@ namespace EmployeeLINQ.Entities
             Email = email;
             Salary = salary;
         }
-
-
-
     }
 }
